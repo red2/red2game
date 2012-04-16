@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:id="@+id/root"
+	android:background="@drawable/snow_320_480">
+
+	<!-- title bar -->	
+	<HorizontalScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:scrollbars="none">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="45dip" android:background="#AA000000">
+		<!-- 返回 -->
+		<Button android:id="@+id/back" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="返\u0020回" />
+
+	<!-- 成员列表 -->
+	<Button android:id="@+id/btn_my_castle" android:layout_width="wrap_content"
+		android:layout_height="fill_parent" android:layout_alignParentRight="true"
+		android:layout_marginRight="10dip" style="@style/simple_button"
+		android:layout_margin="5.0dip" android:text="我的城堡" />
+
+		<!-- 成员列表 -->
+		<Button android:id="@+id/btn_participants"
+			android:layout_width="wrap_content" android:layout_height="fill_parent"
+			android:layout_alignParentRight="true" android:layout_marginRight="10dip"
+			style="@style/simple_button" android:layout_margin="5.0dip"
+			android:text="成员列表" />
+
+		<!-- 投靠其他城堡 -->
+		<Button android:id="@+id/btn_other_castle" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="投靠其他城堡" />
+
+		<!-- 新建城堡 -->
+		<!-- Set visibility to 'gone' for we don't need this for now -->
+		<Button android:id="@+id/btn_new_castle" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="新建城堡" android:visibility="gone"/>
+	</LinearLayout>
+</HorizontalScrollView>
+	<!-- first view [my castle] -->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/view_my_castle" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:background="#AA000000">
+		<RelativeLayout android:id="@+id/castle_message"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:background="@drawable/shape_5" android:paddingTop="10.0dip"
+			android:paddingBottom="10.0dip">
+
+			<TextView android:id="@+id/castle_name"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="10.0dip" style="@style/user_message"
+				android:text="名称: 斯巴克城堡" />
+
+			<TextView android:id="@+id/castle_place"
+				android:layout_width="wrap_content" android:layout_marginLeft="10.0dip"
+				android:layout_height="wrap_content" android:layout_toRightOf="@id/castle_name"
+				style="@style/user_message" android:text="地点: 斯巴克" />
+
+			<TextView android:id="@+id/castle_host"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="10.0dip" android:layout_below="@id/castle_name"
+				style="@style/user_message" android:text="城堡主: 大牛" />
+
+			<TextView android:id="@+id/castle_people"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="10.0dip" android:layout_toRightOf="@id/castle_host"
+				android:layout_below="@id/castle_name" style="@style/user_message"
+				android:text="人数: 9人" />
+		</RelativeLayout>
+
+		<!-- 城堡图片 -->
+		<ImageView android:id="@+id/img" android:layout_width="320.0dip"
+			android:layout_height="148.0dip" android:layout_gravity="center_horizontal"
+			android:src="@drawable/mycastle" android:scaleType="fitXY"
+			android:padding="5.dip" />
+
+		<!-- 公告 -->
+
+		<TextView android:id="@+id/castle_msg" android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:background="@drawable/castle_msg_bg"
+			android:layout_weight="1.0" style="@style/castle_message"
+			android:text="@string/castle_message"></TextView>
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal" android:layout_width="fill_parent"
+			android:layout_height="45dip" android:background="#AA000000"
+			android:layout_alignParentBottom="true">
+			<!-- 攻城 -->
+			<Button android:id="@+id/launch_castle" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="攻城" />
+
+			<!-- 守城 -->
+			<Button android:id="@+id/guard_castle" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="守城" />
+
+			<!-- 造反 -->
+			<Button android:id="@+id/revolt_castle" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="造反" />
+
+			<!-- 攻城投票 -->
+			<Button android:id="@+id/vote_for_attack" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="攻城投票" />
+				
+				<!-- 选举投票 -->
+			<Button android:id="@+id/vote_for_admin" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="选举投票" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<!-- second view [participants] -->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:id="@+id/view_participants"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:background="#AA000000" android:visibility="gone">
+		<ListView android:id="@+id/participants_listview"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+	</LinearLayout>
+
+	<!-- third view [other castle] -->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/view_other_castle" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:background="#AA000000"
+		android:orientation="vertical" android:visibility="gone">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+			<EditText android:id="@+id/other_view_search_edit" android:layout_width="150dip" android:layout_height="wrap_content" android:layout_marginLeft="5dip"/>
+			<Button android:id="@+id/other_view_btn_search" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5dip" android:text="搜索"/>
+			<Button android:id="@+id/other_view_btn_around" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5dip" android:text="周边" />			
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<ListView android:id="@+id/other_view_listview_castle_results" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+		</LinearLayout>
+	</LinearLayout>
+	
+	<!-- forth view [new castle] -->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/view_new_castle" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:background="#AA000000"
+		android:orientation="vertical" android:visibility="gone">
+		<EditText android:id="@+id/new_castle_edit_castle_name" android:layout_width="200dip" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" />
+		<Spinner android:id="@+id/new_castle_spinner_locations" android:layout_width="200dip" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" />
+		<Button android:id="@+id/new_castle_btn_ack"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提交服务器" android:layout_gravity="center_horizontal" />
+	</LinearLayout>
+</LinearLayout>

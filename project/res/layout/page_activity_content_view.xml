@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/snow_320_480" android:orientation="vertical">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="45dip" android:background="#AA000000">
+		<!-- 返回 -->
+		<Button android:id="@+id/button_back" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="返回" />
+
+		<!-- 加入活动 -->
+		<Button android:id="@+id/button_jion" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="加入活动" />
+	</LinearLayout>
+
+	<ListView android:scrollbars="vertical"
+		android:scrollbarThumbVertical="@drawable/scrollbar_drawable"
+		android:listSelector="@drawable/list_item_bg" android:layout_width="fill_parent"
+		android:layout_height="275.0dip" android:id="@+id/connections_list_view"
+		android:cacheColorHint="#00000000" android:layout_weight="1.0"
+		android:layout_marginTop="45.0dip" />
+
+	<!-- 活动内容 -->
+	<TextView android:id="@+id/activity_content"
+		android:layout_width="fill_parent" android:layout_height="100.0dip"
+		android:background="@drawable/castle_msg_bg" android:layout_weight="1.0"
+		style="@style/castle_message" android:text="@string/castle_message"
+		android:layout_gravity="bottom" android:layout_marginTop="320.0dip"></TextView>
+</RelativeLayout>

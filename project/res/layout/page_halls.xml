@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+	android:id="@+id/hall_layout"
+	android:background="@@drawable/snow_320_480"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<RelativeLayout
+		android:id="@+id/hall_topbar"
+		android:layout_width="fill_parent"
+		android:layout_height="40.0dip" />
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:background="#AA000000">
+		<!-- 返回 -->
+		<Button
+			android:id="@+id/btn_back"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="返\u0020回" />
+	</LinearLayout>
+	<RelativeLayout
+		android:id="@+id/relative_news"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true">
+		<ImageView
+			android:id="@+id/hall_image_news"
+			android:layout_width="102.0dip"
+			android:layout_height="129.0dip"
+			android:src="@drawable/hall_news" />
+		<ImageView
+			android:id="@+id/hall_image_newscloud"
+			android:layout_width="69.0dip"
+			android:layout_height="59.0dip"
+			android:layout_marginTop="90.0dip"
+			android:layout_alignRight="@+id/hall_image_news" />
+		<Button
+			android:textColor="#ffffffff"
+			android:id="@+id/btn_five_dynasty"
+			android:background="@drawable/button_news"
+			android:layout_width="wrap_content"
+			android:layout_height="25.0dip"
+			android:layout_marginLeft="20.0dip"
+			android:layout_marginTop="80.0dip"
+			android:text="穿越五朝" />
+		<ImageView
+			android:id="@+id/hall_image_newsnotify"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="60.0dip"
+			android:layout_alignRight="@+id/hall_image_news" />
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/relative_rank"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="40.0dip"
+		android:layout_marginTop="75.0dip">
+		<ImageView
+			android:id="@+id/hall_image_honourrank"
+			android:layout_width="84.0dip"
+			android:layout_height="105.0dip"
+			android:src="@drawable/hall_honourrank" />
+		<Button
+			android:textColor="#ffffffff"
+			android:gravity="center"
+			android:id="@+id/btn_arena"
+			android:background="@drawable/button_rank"
+			android:layout_width="wrap_content"
+			android:layout_height="25.0dip"
+			android:layout_marginLeft="28.0dip"
+			android:layout_marginTop="10.0dip"
+			android:text="吹牛擂台" />
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/relative_port"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="145.0dip"
+		android:layout_marginTop="20.0dip">
+		<ImageView
+			android:id="@+id/hall_image_port"
+			android:layout_width="98.0dip"
+			android:layout_height="127.0dip"
+			android:src="@drawable/hall_port" />
+		<Button
+			android:textColor="#ffffffff"
+			android:gravity="center"
+			android:id="@+id/btn_match"
+			android:background="@drawable/button_port"
+			android:layout_width="wrap_content"
+			android:layout_height="25.0dip"
+			android:layout_marginLeft="20.0dip"
+			android:layout_marginTop="75.0dip"
+			android:text="竞技场" />
+		<ImageView
+			android:id="@+id/hall_image_portnotify"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="50.0dip"
+			android:layout_marginRight="15.0dip"
+			android:layout_alignRight="@+id/hall_image_port" />
+	</RelativeLayout>
+	<ImageView
+		android:id="@+id/hall_image_portcloud"
+		android:layout_width="99.0dip"
+		android:layout_height="59.0dip"
+		android:layout_marginTop="30.0dip"
+		android:layout_marginRight="-40.0dip"
+		android:layout_alignParentRight="true" />
+	<RelativeLayout
+		android:id="@+id/relative_shop"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="85.0dip"
+		android:layout_marginRight="2.0dip"
+		android:layout_alignParentRight="true">
+		<ImageView
+			android:id="@+id/hall_image_shop"
+			android:layout_width="100.0dip"
+			android:layout_height="137.0dip"
+			android:src="@drawable/hall_shop" />
+		<Button
+			android:textColor="#ffffffff"
+			android:gravity="center"
+			android:id="@+id/hall_btn_shop"
+			android:background="@drawable/button_shop"
+			android:layout_width="50.0dip"
+			android:layout_height="25.0dip"
+			android:layout_marginTop="80.0dip"
+			android:layout_marginRight="17.0dip"
+			android:text="商 \u0020店"
+			android:layout_alignRight="@+id/hall_image_shop" />
+		<ImageView
+			android:id="@+id/hall_image_shopnotify"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="55.0dip"
+			android:layout_marginRight="3.0dip"
+			android:layout_alignRight="@+id/hall_image_shop" />
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/relative_mail"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="220.0dip"
+		android:layout_marginRight="-3.0dip"
+		android:layout_alignParentRight="true">
+		<ImageView
+			android:id="@+id/hall_image_mail"
+			android:layout_width="108.0dip"
+			android:layout_height="131.0dip"
+			android:layout_alignParentRight="true"
+			android:src="@drawable/hall_mail" />
+		<Button
+			android:textColor="#ffffffff"
+			android:id="@+id/hall_btn_mail"
+			android:background="@drawable/button_mail"
+			android:layout_width="50.0dip"
+			android:layout_height="25.0dip"
+			android:layout_marginTop="60.0dip"
+			android:layout_marginRight="30.0dip"
+			android:text="邮 \u0020局"
+			android:layout_alignParentRight="true" />
+		<ImageView
+			android:id="@+id/hall_image_mailcloud"
+			android:layout_width="99.0dip"
+			android:layout_height="59.0dip"
+			android:layout_marginTop="75.0dip"
+			android:layout_marginRight="-20.0dip"
+			android:layout_alignParentRight="true" />
+		<ImageView
+			android:id="@+id/hall_image_mailnotify"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="40.0dip"
+			android:layout_marginRight="20.0dip"
+			android:layout_alignRight="@+id/hall_image_mail" />
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/relative_bourse"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="85.0dip"
+		android:layout_marginTop="10.0dip"
+		android:layout_alignParentBottom="true">
+		<ImageView
+			android:id="@+id/hall_image_bourse"
+			android:layout_width="154.0dip"
+			android:layout_height="160.0dip"
+			android:src="@drawable/hall_bourse" />
+		<Button
+			android:textColor="#ffffffff"
+			android:gravity="center"
+			android:id="@+id/hall_btn_bourse"
+			android:background="@drawable/button_bourse"
+			android:layout_width="60.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="120.0dip"
+			android:text="游戏测试"
+			android:layout_alignRight="@+id/hall_image_bourse" />
+		<ImageView
+			android:id="@+id/hall_image_boursenotify"
+			android:visibility="gone"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginBottom="55.0dip"
+			android:layout_alignRight="@+id/hall_image_bourse"
+			android:layout_alignBottom="@+id/hall_image_bourse" />
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/relative_friend"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="155.0dip"
+		android:layout_marginRight="20.0dip"
+		android:layout_alignParentLeft="true">
+		<ImageView
+			android:id="@+id/hall_image_friend"
+			android:layout_width="118.0dip"
+			android:layout_height="200.0dip"
+			android:layout_alignParentLeft="true"
+			android:src="@drawable/hall_friend" />
+		<Button
+			android:textColor="#ffffffff"
+			android:gravity="center"
+			android:id="@+id/hall_btn_friend"
+			android:background="@drawable/button_friend"
+			android:layout_width="50.0dip"
+			android:layout_height="25.0dip"
+			android:layout_marginTop="95.0dip"
+			android:layout_marginRight="5.0dip"
+			android:text="好友记"
+			android:layout_alignRight="@+id/hall_image_friend" />
+		<RelativeLayout
+			android:id="@+id/starsleft"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="155.0dip"
+			android:layout_alignParentLeft="true">
+			<ImageView
+				android:id="@+id/leftonestar"
+				android:layout_width="19.0dip"
+				android:layout_height="18.0dip" />
+			<ImageView
+				android:id="@+id/lefttwostar"
+				android:layout_width="19.0dip"
+				android:layout_height="18.0dip"
+				android:layout_toLeftOf="@+id/starsleft"
+				android:layout_below="@+id/starsleft" />
+		</RelativeLayout>
+		<ImageView
+			android:id="@+id/hall_image_friendnotify"
+			android:layout_width="30.0dip"
+			android:layout_height="30.0dip"
+			android:layout_marginTop="80.0dip"
+			android:layout_alignRight="@+id/hall_image_friend" />
+	</RelativeLayout>
+	<ImageView
+		android:id="@+id/hall_image_boat"
+		android:layout_width="70.0dip"
+		android:layout_height="56.0dip"
+		android:layout_marginLeft="30.0dip"
+		android:layout_marginTop="70.0dip"
+		android:layout_toLeftOf="@+id/hall_image_bourse"
+		android:layout_below="@+id/relative_news" />
+	<RelativeLayout
+		android:id="@+id/relative_cloud"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="15.0dip"
+		android:layout_marginTop="38.0dip"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true">
+		<ImageView
+			android:id="@+id/hall_image_honourclound"
+			android:layout_width="130.0dip"
+			android:layout_height="59.0dip" />
+	</RelativeLayout>
+	<ImageView
+		android:id="@+id/hall_image_boursecloud"
+		android:layout_width="130.0dip"
+		android:layout_height="52.0dip"
+		android:layout_marginLeft="60.0dip"
+		android:layout_marginBottom="-5.0dip"
+		android:layout_alignParentBottom="true" />
+	<ImageView
+		android:id="@+id/hall_image_friend_cloud"
+		android:layout_width="75.0dip"
+		android:layout_height="59.0dip"
+		android:layout_marginLeft="-25.0dip"
+		android:layout_marginTop="140.0dip"
+		android:layout_alignParentLeft="true" />
+	<RelativeLayout
+		android:id="@+id/starscenterone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="13.0dip"
+		android:layout_marginBottom="30.0dip"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true">
+		<ImageView
+			android:id="@+id/centeronestar"
+			android:layout_width="19.0dip"
+			android:layout_height="18.0dip" />
+		<ImageView
+			android:id="@+id/centertwostar"
+			android:layout_width="19.0dip"
+			android:layout_height="18.0dip"
+			android:layout_below="@+id/centeronestar" />
+	</RelativeLayout>
+	<ImageView
+		android:id="@+id/hall_image_honourranknotify"
+		android:layout_width="30.0dip"
+		android:layout_height="30.0dip"
+		android:layout_marginTop="85.0dip"
+		android:layout_marginRight="5.0dip"
+		android:layout_alignRight="@+id/relative_rank" />
+</RelativeLayout>

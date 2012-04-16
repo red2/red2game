@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:orientation="horizontal"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<ImageView android:layout_gravity="center_vertical"
+		android:id="@+id/iv" android:gravity="center_vertical"
+		android:layout_width="30dip" android:layout_height="30dip"
+		android:src="@drawable/topbar_shop" android:layout_marginLeft="5dip" />
+	<TextView android:layout_weight="1.0"
+		android:layout_marginLeft="5dip" style="@style/msg_text" android:id="@+id/tv"
+		android:layout_height="36dip" android:gravity="center_vertical" />
+</LinearLayout>

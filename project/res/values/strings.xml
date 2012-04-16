@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Five</string>
+	<string name="app_name">五图争霸</string>
+	<string name="enter_msg">版本:1.0beta</string>
+
+	<!-- 帮助信息 -->
+	<string name="help">帮助</string>
+	<string name="about">关于</string>
+	<string name="feedback">反馈</string>
+	<string name="update">更新</string>
+
+	<!-- Wait Dialog -->
+	<string name="wait_dialog_title">Loading</string>
+	<string name="wait_dialog_message">数据加载中,请稍候</string>
+
+	<string name="castle_message">公告\n移动互联网正在全球掀起新一轮的热潮,高速增长的中国市场毫无疑问成为瞩目焦点.
+	</string>
+
+
+
+</resources>

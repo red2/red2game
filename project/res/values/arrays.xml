@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string-array name="menu_name">
+		<item>人脉图</item>
+		<item>我的城堡</item>
+		<item>走江湖</item>
+		<item>闯五朝</item>
+		<item>活动</item>
+	</string-array>
+	<string-array name="store_number_values">
+		<item>20</item>
+		<item>30</item>
+		<item>50</item>
+	</string-array>
+</resources>

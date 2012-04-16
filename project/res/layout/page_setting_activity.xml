@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/snow_320_480"
+	android:layout_gravity="center_horizontal">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/login_LinearLayout3"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10.0dip">
+		<TextView
+			android:id="@+id/tv_modify_password"
+			style="@style/text_style"
+			android:layout_marginTop="10dip"
+			android:layout_marginLeft="10dip"
+			android:text=" 设置" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_voice_switch"
+			android:background="@drawable/button_orange"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="背景声音（打开）" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_location_switch"
+			android:background="@drawable/button_green"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="位置服务 (打开)" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_protect_password"
+			android:background="@drawable/button_blue"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="密码保护" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_modify_password"
+			android:background="@drawable/button_orange"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="密码修改" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_modify_phonenumber"
+			android:background="@drawable/button_blue"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="修改手机号" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal">
+		<Button
+			android:textStyle="bold"
+			android:textColor="#ffffffff"
+			android:id="@+id/button_logout"
+			android:background="@drawable/button_green"
+			android:layout_width="200.0dip"
+			android:layout_height="35.0dip"
+			android:layout_marginTop="15.0dip"
+			android:text="注销" />
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:id="@+id/root"
+	android:background="#ff660000">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:background="@drawable/castle_msg_bg"
+		android:padding="10.0dip">
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal" android:layout_width="fill_parent"
+			android:layout_height="45.0dip">
+			<Button android:id="@+id/button_eat" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="吃"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_drink" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="喝"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_play" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="玩"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_happy" android:layout_width="wrap_content"
+				android:layout_height="fill_parent" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="乐"
+				android:layout_weight="1.0" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

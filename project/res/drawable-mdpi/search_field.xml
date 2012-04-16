@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<shape>
+			<gradient android:startColor="#ff252525" android:endColor="#ff505050"
+				android:angle="90.0" android:type="linear" />
+			<corners android:radius="4.0dip" />
+			<padding android:left="1.0dip" android:top="1.0dip"
+				android:right="1.0dip" android:bottom="1.0dip" />
+		</shape>
+	</item>
+	<item>
+		<shape>
+			<gradient android:startColor="#ff323232" android:endColor="#ff424242"
+				android:angle="90.0" android:type="linear" />
+			<corners android:radius="4.0dip" />
+			<padding android:left="3.0dip" android:top="3.0dip"
+				android:right="3.0dip" android:bottom="3.0dip" />
+		</shape>
+	</item>
+	<item>
+		<shape>
+			<gradient android:startColor="#ffffffff" android:endColor="#ff252525"
+				android:angle="90.0" android:type="linear" />
+			<corners android:radius="3.0dip" />
+			<padding android:left="1.0dip" android:top="1.0dip"
+				android:right="1.0dip" android:bottom="1.0dip" />
+		</shape>
+	</item>
+	<item>
+		<shape>
+			<gradient android:startColor="#ffeeeeee" android:endColor="#ffffffff"
+				android:angle="90.0" android:type="linear" android:centerColor="#ffffffff" />
+			<corners android:radius="3.0dip" />
+		</shape>
+	</item>
+	<item android:bottom="3.0dip">
+		<shape>
+			<gradient android:startColor="#fffff3cf" android:endColor="#ffffe8a9"
+				android:angle="90.0" android:type="linear" />
+			<corners android:radius="3.0dip" />
+		</shape>
+	</item>
+</layer-list>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:id="@+id/root"
+	android:background="@drawable/snow_320_480">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="45dip" android:background="#AA000000">
+		<!-- 返回 -->
+		<Button android:id="@+id/bt_back" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="返\u0020回" />
+		<!-- 收钱 -->
+		<Button android:id="@+id/bt_money" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="收钱" />
+		<!-- 干活 -->
+		<Button android:id="@+id/bt_work" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="干活" />
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="45dip" android:background="#80000000">
+		<!-- 钱袋 -->
+		<ImageView android:layout_gravity="center_vertical"
+			android:id="@+id/iv" android:gravity="center_vertical"
+			android:layout_width="45dip" android:layout_height="45dip"
+			android:src="@drawable/money" android:layout_marginLeft="5dip"
+			android:scaleType="fitXY" />
+		<!-- 钱数 -->
+		<TextView android:id="@+id/money" android:layout_width="wrap_content"
+			android:layout_marginLeft="10.0dip" android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/role" style="@style/msg_text"
+			android:layout_gravity="center_vertical" android:text="1000,000,000" />
+	</LinearLayout>
+</LinearLayout>

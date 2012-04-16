@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:orientation="horizontal"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<ImageView android:layout_gravity="center_vertical"
+			android:id="@+id/iv" android:gravity="center_vertical"
+			android:layout_width="30dip" android:layout_height="30dip"
+			android:src="@drawable/activity_icon" android:layout_marginLeft="5dip" />
+		<TextView android:layout_weight="1.0"
+			android:layout_marginLeft="5dip" style="@style/msg_text" android:id="@+id/tv"
+			android:layout_height="36dip" android:layout_toRightOf="@id/iv"
+			android:gravity="center_vertical" android:layout_width="200.0dip" />
+		<Button android:textColor="#ffffffff" android:id="@+id/button_jion"
+			android:background="@drawable/button_orange" android:layout_width="50.0dip"
+			android:layout_height="24.0dip" android:layout_marginRight="15.0dip"
+			android:text="加入" android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" />
+	</RelativeLayout>
+</LinearLayout>

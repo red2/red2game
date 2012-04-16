@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/snow_320_480">
+	<com.five.game.FistGameView
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:id="@+id/fist_game_view" />
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal|bottom">
+
+		<ImageButton android:id="@+id/rock_small"
+			android:layout_width="60.0dip" android:layout_height="60.0dip"
+			android:padding="0px" android:layout_margin="5dip" android:src="@drawable/rock_small"
+			android:scaleType="fitXY" />
+		<ImageButton android:id="@+id/knife_small"
+			android:layout_width="60.0dip" android:layout_height="60.0dip"
+			android:padding="0px" android:layout_margin="5dip" android:src="@drawable/knife_small"
+			android:scaleType="fitXY" />
+		<ImageButton android:id="@+id/cloth_small"
+			android:layout_width="60.0dip" android:layout_height="60.0dip"
+			android:padding="0px" android:layout_margin="5dip" android:src="@drawable/cloth_small"
+			android:scaleType="fitXY" />
+	</LinearLayout>
+</FrameLayout>

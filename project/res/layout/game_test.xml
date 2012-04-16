@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:admobsdk="http://schemas.android.com/apk/res/org.void1898.www.agilebuddy"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="300dip"
+		android:layout_weight="1">
+		<com.five.test.GameView
+			android:id="@+id/agile_buddy"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:background="#AA000000"
+		android:gravity="center_horizontal|bottom">
+		<!-- 左 -->
+		<Button
+			android:id="@+id/left"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="左" />
+
+		<!-- 右 -->
+		<Button
+			android:id="@+id/right"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="右" />
+		<Button
+			android:id="@+id/stop"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="停" />
+	</LinearLayout>
+
+
+</LinearLayout>

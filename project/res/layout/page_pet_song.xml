@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:id="@+id/root"
+	android:background="@drawable/snow_320_480">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:layout_height="45dip" android:background="#AA000000">
+		<!-- 返回 -->
+		<Button android:id="@+id/btn_back" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="返\u0020回" />
+
+		<!-- 播放列表 -->
+		<Button android:id="@+id/btn_play_list" android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip" style="@style/simple_button"
+			android:layout_margin="5.0dip" android:text="播放列表" />
+	</LinearLayout>
+	<ImageView android:id="@+id/pet_image" android:layout_width="98.0dip"
+		android:layout_height="127.0dip" android:layout_marginLeft="100dip" />
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:background="@drawable/simple_bg"
+		android:padding="10.0dip">
+		<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal" android:layout_width="fill_parent"
+			android:layout_height="45.0dip">
+			<RadioButton android:id="@+id/rb_43"
+				android:layout_width="wrap_content" android:layout_height="35.0dip"
+				android:layout_alignParentRight="true" android:layout_marginRight="10dip"
+				android:layout_margin="5.0dip" android:text="3/4节拍"
+				android:layout_weight="1.0" android:checked="true" />
+			<RadioButton android:id="@+id/rb_44"
+				android:layout_width="wrap_content" android:layout_height="35.0dip"
+				android:layout_alignParentRight="true" android:layout_marginRight="10dip"
+				android:layout_margin="5.0dip" android:text="4/4节拍"
+				android:layout_weight="1.0" />
+		</RadioGroup>
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal" android:layout_width="fill_parent"
+			android:layout_height="45.0dip">
+			<Button android:id="@+id/button_start" android:layout_width="wrap_content"
+				android:layout_height="35.0dip" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="开\u0020始"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_stop" android:layout_width="wrap_content"
+				android:layout_height="35.0dip" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="停\u0020止"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_play" android:layout_width="wrap_content"
+				android:layout_height="35.0dip" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="试\u0020听"
+				android:layout_weight="1.0" />
+			<Button android:id="@+id/button_save" android:layout_width="wrap_content"
+				android:layout_height="35.0dip" android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip" style="@style/simple_button"
+				android:layout_margin="5.0dip" android:text="保\u0020存"
+				android:layout_weight="1.0" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

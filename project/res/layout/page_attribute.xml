@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/root"
+	android:background="@drawable/snow_320_480">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:background="#AA000000">
+		<!-- 返回 -->
+		<Button
+			android:id="@+id/back"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="返\u0020回" />
+		<!-- 修改信息 -->
+		<Button
+			android:id="@+id/modify"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="修改信息" />
+		<!-- 设置 -->
+		<Button
+			android:id="@+id/seting"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="设置" />
+	</LinearLayout>
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="95dip"
+		android:background="@drawable/castle_msg_bg"
+		android:layout_marginTop="5.0dip">
+		<ImageView
+			android:layout_width="75dip"
+			android:layout_height="75dip"
+			android:src="@drawable/head"
+			android:background="@drawable/image_bg"
+			android:padding="6.0dip"></ImageView>
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			<TextView
+				android:id="@+id/name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5.0dip"
+				style="@style/castle_message"
+				android:text="ID：百年孤独" />
+
+			<TextView
+				android:id="@+id/sign"
+				android:layout_width="wrap_content"
+				android:layout_marginLeft="5.0dip"
+				android:layout_height="wrap_content"
+				style="@style/castle_message"
+				android:text="签名：人类所有的才能无非时间和内心的混合物～" />
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/simple_bg"
+		android:padding="10.0dip">
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="45.0dip">
+			<Button
+				android:id="@+id/button_eat"
+				android:layout_width="wrap_content"
+				android:layout_height="35.0dip"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="吃"
+				android:layout_weight="1.0" />
+			<Button
+				android:id="@+id/button_drink"
+				android:layout_width="wrap_content"
+				android:layout_height="35.0dip"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="喝"
+				android:layout_weight="1.0" />
+			<Button
+				android:id="@+id/button_play"
+				android:layout_width="wrap_content"
+				android:layout_height="35.0dip"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="玩"
+				android:layout_weight="1.0" />
+			<Button
+				android:id="@+id/button_happy"
+				android:layout_width="wrap_content"
+				android:layout_height="35.0dip"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="乐"
+				android:layout_weight="1.0" />
+		</LinearLayout>
+		<Gallery
+			android:id="@+id/gallery"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:gravity="center_vertical"
+			android:spacing="10dip"
+			android:padding="5.0dip" />
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="45dip">
+			<!-- 转换角色 -->
+			<Button
+				android:id="@+id/change_role"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="设置/转换角色" />
+			<!-- 属性 -->
+			<Button
+				android:id="@+id/change_attribute"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dip"
+				style="@style/simple_button"
+				android:layout_margin="5.0dip"
+				android:text="金+1000" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

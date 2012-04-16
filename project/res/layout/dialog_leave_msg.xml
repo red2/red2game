@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:id="@+id/modify_dialog"
+	android:background="#00000000" android:paddingRight="10.0dip"
+	android:paddingBottom="5.0dip" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+		<TextView android:id="@+id/tv_name" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="10.0dip"
+			style="@style/user_message" android:text="留言:" />
+		<EditText android:id="@+id/et_name" android:background="@drawable/search_field"
+			android:paddingLeft="10.0dip" android:layout_width="wrap_content"
+			android:layout_height="100.0dip" android:layout_marginLeft="5.0dip"
+			android:width="230.0dip" android:maxLength="100" android:maxLines="3"
+			android:imeOptions="actionDone" android:gravity="top" />
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:paddingTop="10.0dip"
+		android:paddingBottom="5.0dip">
+		<Button android:id="@+id/button_ok" android:layout_width="wrap_content"
+			android:layout_weight="1" style="@style/simple_button"
+			android:layout_marginLeft="20dip" android:text="确\u0020定"
+			android:layout_height="35.0dip" />
+
+		<Button android:id="@+id/button_cancel" android:layout_width="wrap_content"
+			android:layout_weight="1" style="@style/simple_button"
+			android:layout_marginLeft="20dip" android:layout_marginRight="20dip"
+			android:text="取\u0020消" android:layout_height="35.0dip" />
+	</LinearLayout>
+
+</LinearLayout>

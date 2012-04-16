@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="5.0dip" />
+                    <gradient android:startColor="#ffb7501b" android:endColor="#ffffc43d" android:angle="90.0" android:type="linear" />
+                    <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <gradient android:startColor="#fff27b0a" android:endColor="#fffda015" android:angle="90.0" android:type="linear" />
+                    <corners android:radius="5.0dip" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true" android:drawable="@drawable/button_orangedown" />
+</selector>
