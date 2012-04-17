@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ListView
+		android:id="@+id/all_sms_list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:scrollbars="vertical"
+		android:scrollbarThumbVertical="@drawable/scrollbar_drawable"
+		android:listSelector="@drawable/list_item_bg"
+		android:cacheColorHint="#00000000"
+		android:layout_weight="1.0">
+	</ListView>
+</LinearLayout>

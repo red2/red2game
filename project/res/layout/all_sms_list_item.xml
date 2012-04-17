@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+	android:layout_margin="5.0dip">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<RelativeLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="60.0dip"
+			android:layout_height="60.0dip">
+			<ImageView
+				android:id="@+id/img_head"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/head"
+				android:layout_marginRight="20dip"
+				android:layout_margin="5.0dip" />
+			<Button
+				android:textColor="#ffffffff"
+				android:gravity="center_vertical"
+				android:id="@+id/sms_size"
+				android:background="@drawable/badge01"
+				android:focusable="false"
+				android:text="10"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:textStyle="bold" />
+		</RelativeLayout>
+	</LinearLayout>
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
+		<TextView
+			android:layout_marginLeft="5dip"
+			style="@style/msg_text"
+			android:id="@+id/tv_name"
+			android:gravity="center_vertical" />
+		<TextView
+			android:layout_marginLeft="5dip"
+			style="@style/msg_text"
+			android:id="@+id/tv_date"
+			android:gravity="center_vertical" />
+	</LinearLayout>
+</LinearLayout>

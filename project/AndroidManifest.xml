@@ -119,6 +119,13 @@
 		<activity
 			android:name="com.five.GetPasswordQuestionActivity" />
 
+		<!--短消息列表界面 -->
+		<activity
+			android:name="com.five.view.SmsListViewActivity" />
+
+		<!--短消息界面 -->
+		<activity
+			android:name="com.five.view.SmsViewActivity" />
 
 	</application>
 	<uses-permission
