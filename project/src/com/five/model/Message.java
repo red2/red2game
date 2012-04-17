@@ -1,5 +1,10 @@
 package com.five.model;
 
+/**
+ * Keepalive 中的消息定义
+ * @author 
+ *
+ */
 public class Message
 {
     /**

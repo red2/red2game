@@ -1,5 +1,10 @@
 package com.five.model;
 
+/**
+ * 宠物信息
+ * @author 
+ *
+ */
 public class Martyr
 {
     private String name;

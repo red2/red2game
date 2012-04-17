@@ -19,6 +19,7 @@ import com.five.model.Gamer;
 import com.five.model.Martyr;
 import com.five.model.Message;
 import com.five.model.Reservation;
+import com.five.model.ShopInfo;
 
 public class DataParser
 {
@@ -793,6 +794,18 @@ public class DataParser
                     // means success
                     parserMessages(jObject);
                     
+                    // 挑战者信息
+                    parserReservations(jObject);
+                    
+                    // 添加好友请求
+                    parserApplys(jObject);
+                    
+                    // 升级信息
+                    parserLevelUp(jObject);
+                    
+                    // 宠物升级信息
+                    parserPetLevelUp(jObject);
+                    
                 }
                 else
                 {
@@ -894,6 +907,10 @@ public class DataParser
         }
     }
     
+    /**
+     * 添加好友，回应信息， 
+     * @param jObject
+     */
     public void parserResponse(JSONObject jObject)
     {
         try
@@ -1033,6 +1050,11 @@ public class DataParser
             {
                 Martyr martyr = new Martyr();
                 JSONObject m = jObject.getJSONObject("martyr");
+                martyr.setMid(m.getString("mid"));
+                martyr.setName(m.getString("name"));
+                martyr.setType(m.getString("type"));
+                
+                gamer.setMartyr(martyr);
             }
             
         }
@@ -1042,6 +1064,41 @@ public class DataParser
             e.printStackTrace();
         }
         return gamer;
+    }
+    
+    public ArrayList<ShopInfo> parserShopInfo(JSONObject jObject)
+    {
+        try
+        {
+            JSONArray arr = jObject.getJSONArray("items");
+            ArrayList<ShopInfo> shops = new ArrayList<ShopInfo>();
+            for(int i = 0; i < arr.length(); i++)
+            {
+                JSONObject obj = arr.getJSONObject(i);
+                ShopInfo shop = new ShopInfo();
+                shop.setSid(obj.getInt("sid"));
+                shop.setName(obj.getString("name"));
+                shop.setSdesc(obj.getString("sdesc"));
+                shop.setType(obj.getString("type"));
+                shop.setDistrct(obj.getString("distrct"));
+                if(obj.has("distance") && !obj.isNull("distance"))
+                {
+                    shop.setDistance(obj.getInt("distance"));
+                }
+                
+                shops.add(shop);
+            }
+            
+            return shops;
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return null;
+        
     }
     
 }

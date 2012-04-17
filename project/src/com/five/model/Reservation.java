@@ -1,5 +1,11 @@
 package com.five.model;
 
+/**
+ * Keepalive 中的挑战信息定义
+ * 
+ * @author 
+ *
+ */
 public class Reservation
 {
     private String challenger;

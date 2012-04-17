@@ -1,5 +1,10 @@
 package com.five.model;
 
+/**
+ * 玩家信息
+ * @author 
+ *
+ */
 public class Gamer
 {
     private String uid;
@@ -123,6 +128,11 @@ public class Gamer
     public void setMartyr(Martyr martyr)
     {
         this.martyr = martyr;
+    }
+    
+    public boolean hasMartyr()
+    {
+        return this.martyr != null;
     }
     
     
