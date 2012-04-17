@@ -15,6 +15,10 @@ import com.five.model.CandidateInfo;
 import com.five.model.CastleBasic;
 import com.five.model.CastleInfo;
 import com.five.model.CastleMember;
+import com.five.model.Gamer;
+import com.five.model.Martyr;
+import com.five.model.Message;
+import com.five.model.Reservation;
 
 public class DataParser
 {
@@ -223,20 +227,23 @@ public class DataParser
                 }
                 
                 /*
-                if (castle.has(ConstValue.CASTLE_INFO_WAR_MONEY) && !castle.isNull(ConstValue.CASTLE_INFO_WAR_MONEY))
-                {
-                    info.setWar_Money(castle.getString(ConstValue.CASTLE_INFO_WAR_MONEY));
-                }*/
+                 * if (castle.has(ConstValue.CASTLE_INFO_WAR_MONEY) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_WAR_MONEY)) {
+                 * info.setWar_Money
+                 * (castle.getString(ConstValue.CASTLE_INFO_WAR_MONEY)); }
+                 */
                 
                 if (castle.has(ConstValue.CASTLE_INFO_DESC) && !castle.isNull(ConstValue.CASTLE_INFO_DESC))
                 {
                     info.setDesc(castle.getString(ConstValue.CASTLE_INFO_DESC));
                 }
                 
-                /*if (castle.has(ConstValue.CASTLE_INFO_TREATURE) && !castle.isNull(ConstValue.CASTLE_INFO_TREATURE))
-                {
-                    info.setTreature(castle.getString(ConstValue.CASTLE_INFO_TREATURE));
-                }*/
+                /*
+                 * if (castle.has(ConstValue.CASTLE_INFO_TREATURE) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_TREATURE)) {
+                 * info.setTreature
+                 * (castle.getString(ConstValue.CASTLE_INFO_TREATURE)); }
+                 */
                 
                 if (castle.has(ConstValue.CASTLE_INFO_BEAST) && !castle.isNull(ConstValue.CASTLE_INFO_BEAST))
                 {
@@ -253,63 +260,65 @@ public class DataParser
                     info.setEndDate(castle.getString(ConstValue.CASTLE_INFO_ENDDATE));
                 }
                 
-                
-               /* 
-                if (castle.has(ConstValue.CASTLE_INFO_MAIN_MEMBERS) && !castle.isNull(ConstValue.CASTLE_INFO_MAIN_MEMBERS))
-                {
-                    JSONArray members = castle.getJSONArray(ConstValue.CASTLE_INFO_MAIN_MEMBERS);
-                    ArrayList<CastleMember> senators = new ArrayList<CastleMember>();
-                    for (int i = 0; i < members.length(); i++)
-                    {
-                        JSONObject obj = members.getJSONObject(i);
-                        
-                        if (obj.has(ConstValue.CASTLE_INFO_MEMBERS_LORD))
-                        {
-                            JSONObject lord = obj.getJSONObject(ConstValue.CASTLE_INFO_MEMBERS_LORD);
-                            
-                            String n = lord.getString(ConstValue.CASTLE_INFO_MEMBERS_NAME);
-                            String id = lord.getString(ConstValue.CASTLE_INFO_MEMBERS_ID);
-                            info.setLord(new CastleMember(n, id));
-                        }
-                        else
-                        {
-                            JSONObject senator = obj.getJSONObject(ConstValue.CASTLE_INFO_MEMBERS_SENATOR);
-                            String n = senator.getString(ConstValue.CASTLE_INFO_MEMBERS_NAME);
-                            String id = senator.getString(ConstValue.CASTLE_INFO_MEMBERS_ID);
-                            senators.add(new CastleMember(n, id));
-                        }
-                    }
-                    
-                    info.setSenator(senators);
-                }
-                
-                // State
-                if (castle.has(ConstValue.CASTLE_INFO_STATE_JOIN) && !castle.isNull(ConstValue.CASTLE_INFO_STATE_JOIN))
-                {
-                    info.setIsJoin(Boolean.parseBoolean(castle.getString(ConstValue.CASTLE_INFO_STATE_JOIN)));
-                    
-                }
-                
-                if (castle.has(ConstValue.CASTLE_INFO_STATE_CASTLE_STATE) && !castle.isNull(ConstValue.CASTLE_INFO_STATE_CASTLE_STATE))
-                {
-                    info.setCastleState(Integer.parseInt(castle.getString(ConstValue.CASTLE_INFO_STATE_CASTLE_STATE)));
-                }
-                
-                if (castle.has(ConstValue.CASTLE_INFO_STATE_RELEVANT) && !castle.isNull(ConstValue.CASTLE_INFO_STATE_RELEVANT))
-                {
-                    info.setIsRelevant(Boolean.parseBoolean(castle.getString(ConstValue.CASTLE_INFO_STATE_RELEVANT)));
-                }
-                
-                if (castle.has(ConstValue.CASTLE_INFO_STATE_POSITION) && !castle.isNull(ConstValue.CASTLE_INFO_STATE_POSITION))
-                {
-                    info.setPosition(Integer.parseInt(castle.getString(ConstValue.CASTLE_INFO_STATE_POSITION)));
-                }
-                
-                if (castle.has(ConstValue.CASTLE_INFO_STATE_AIM) && !castle.isNull(ConstValue.CASTLE_INFO_STATE_AIM))
-                {
-                    info.setAimCastle(castle.getString(ConstValue.CASTLE_INFO_STATE_AIM));
-                }
-                */
+                /*
+                 * if (castle.has(ConstValue.CASTLE_INFO_MAIN_MEMBERS) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_MAIN_MEMBERS)) {
+                 * JSONArray members =
+                 * castle.getJSONArray(ConstValue.CASTLE_INFO_MAIN_MEMBERS);
+                 * ArrayList<CastleMember> senators = new
+                 * ArrayList<CastleMember>(); for (int i = 0; i <
+                 * members.length(); i++) { JSONObject obj =
+                 * members.getJSONObject(i);
+                 * 
+                 * if (obj.has(ConstValue.CASTLE_INFO_MEMBERS_LORD)) {
+                 * JSONObject lord =
+                 * obj.getJSONObject(ConstValue.CASTLE_INFO_MEMBERS_LORD);
+                 * 
+                 * String n =
+                 * lord.getString(ConstValue.CASTLE_INFO_MEMBERS_NAME); String
+                 * id = lord.getString(ConstValue.CASTLE_INFO_MEMBERS_ID);
+                 * info.setLord(new CastleMember(n, id)); } else { JSONObject
+                 * senator =
+                 * obj.getJSONObject(ConstValue.CASTLE_INFO_MEMBERS_SENATOR);
+                 * String n =
+                 * senator.getString(ConstValue.CASTLE_INFO_MEMBERS_NAME);
+                 * String id =
+                 * senator.getString(ConstValue.CASTLE_INFO_MEMBERS_ID);
+                 * senators.add(new CastleMember(n, id)); } }
+                 * 
+                 * info.setSenator(senators); }
+                 * 
+                 * // State if (castle.has(ConstValue.CASTLE_INFO_STATE_JOIN) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_STATE_JOIN)) {
+                 * info.setIsJoin
+                 * (Boolean.parseBoolean(castle.getString(ConstValue
+                 * .CASTLE_INFO_STATE_JOIN)));
+                 * 
+                 * }
+                 * 
+                 * if (castle.has(ConstValue.CASTLE_INFO_STATE_CASTLE_STATE) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_STATE_CASTLE_STATE)) {
+                 * info
+                 * .setCastleState(Integer.parseInt(castle.getString(ConstValue
+                 * .CASTLE_INFO_STATE_CASTLE_STATE))); }
+                 * 
+                 * if (castle.has(ConstValue.CASTLE_INFO_STATE_RELEVANT) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_STATE_RELEVANT)) {
+                 * info.
+                 * setIsRelevant(Boolean.parseBoolean(castle.getString(ConstValue
+                 * .CASTLE_INFO_STATE_RELEVANT))); }
+                 * 
+                 * if (castle.has(ConstValue.CASTLE_INFO_STATE_POSITION) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_STATE_POSITION)) {
+                 * info.
+                 * setPosition(Integer.parseInt(castle.getString(ConstValue.
+                 * CASTLE_INFO_STATE_POSITION))); }
+                 * 
+                 * if (castle.has(ConstValue.CASTLE_INFO_STATE_AIM) &&
+                 * !castle.isNull(ConstValue.CASTLE_INFO_STATE_AIM)) {
+                 * info.setAimCastle
+                 * (castle.getString(ConstValue.CASTLE_INFO_STATE_AIM)); }
+                 */
             }
         }
         catch (JSONException e)
@@ -373,7 +382,6 @@ public class DataParser
                     {
                         basic.setBeast(castle.getString(ConstValue.CASTLE_LIST_CASTLE_BEAST));
                     }
-                    
                     
                     list.add(basic);
                 }
@@ -528,6 +536,7 @@ public class DataParser
     
     /**
      * 获取成员列表
+     * 
      * @param obj
      * @return
      */
@@ -583,7 +592,7 @@ public class DataParser
         }
         
         return result;
-    }  
+    }
     
     /**
      * 注册
@@ -627,7 +636,7 @@ public class DataParser
         }
         return verify;
     }
-
+    
     /**
      * 提交密码保护信息
      * 
@@ -638,7 +647,7 @@ public class DataParser
     {
         // 解析密码保护信息
     }
-
+    
     /**
      * 提修改密码
      * 
@@ -649,7 +658,7 @@ public class DataParser
     {
         // 解析修改密码
     }
-
+    
     /**
      * 提修改密码
      * 
@@ -660,7 +669,7 @@ public class DataParser
     {
         // 解析修改手机号
     }
-
+    
     /**
      * 提修改密码
      * 
@@ -682,6 +691,7 @@ public class DataParser
         }
         return pw;
     }
+    
     /**
      * 判断是否第一次登录
      * 
@@ -703,7 +713,7 @@ public class DataParser
         }
         return first;
     }
-
+    
     public String parserPhoneLoginDate(JSONObject jObject)
     {
         // TODO Auto-generated method stub
@@ -721,7 +731,7 @@ public class DataParser
         }
         return uid;
     }
-
+    
     public String parserNameLoginDate(JSONObject jObject)
     {
         // TODO Auto-generated method stub
@@ -739,15 +749,15 @@ public class DataParser
         }
         return uid;
     }
-
+    
     public HashMap<String, String> parserGetQuestion(JSONObject jObject)
     {
         // TODO Auto-generated method stub
-        HashMap<String,String> map = new HashMap<String,String>();
+        HashMap<String, String> map = new HashMap<String, String>();
         try
         {
             String protect = jObject.getString("protect");
-            if(protect.equals("yes"))
+            if (protect.equals("yes"))
             {
                 String q1 = jObject.getString("question1");
                 String q2 = jObject.getString("question2");
@@ -769,5 +779,269 @@ public class DataParser
         }
         return map;
     }
-
+    
+    public void parserKeepAlive(JSONObject jObject)
+    {
+        int status = -1;
+        try
+        {
+            if (jObject.has("status") && !jObject.isNull("status"))
+            {
+                status = jObject.getInt("status");
+                if (status / 100 == 2)
+                {
+                    // means success
+                    parserMessages(jObject);
+                    
+                }
+                else
+                {
+                    // now maybe 400
+                    String messsge = jObject.getString("message");
+                    
+                }
+            }
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public ArrayList<Message> parserMessages(JSONObject jObject)
+    {
+        try
+        {
+            if (jObject.has("messages") && !jObject.isNull("messages"))
+            {
+                ArrayList<Message> msgs = new ArrayList<Message>();
+                JSONArray array = jObject.getJSONArray("messages");
+                for (int i = 0; i < array.length(); i++)
+                {
+                    JSONObject msg = array.getJSONObject(i);
+                    String messager = msg.getString("messager");
+                    String mid = msg.getString("mid");
+                    long date = msg.getLong("date");
+                    String content = msg.getString("content");
+                    
+                    Message m = new Message(messager, mid, date, content);
+                    msgs.add(m);
+                }
+                
+                return msgs;
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Reservation> parserReservations(JSONObject jObject)
+    {
+        try
+        {
+            if (jObject.has("reservations") && !jObject.isNull("reservations"))
+            {
+                JSONArray array = jObject.getJSONArray("reservations");
+                ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+                for (int i = 0; i < array.length(); i++)
+                {
+                    JSONObject obj = array.getJSONObject(i);
+                    String challenger = obj.getString("challenger");
+                    String uid = obj.getString("uid");
+                    long date = obj.getLong("date");
+                    Reservation reserv = new Reservation(challenger, uid, date);
+                    reservations.add(reserv);
+                }
+                
+                return reservations;
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+    
+    public void parserApplys(JSONObject jObject)
+    {
+        try
+        {
+            if (jObject.has("applys") && !jObject.isNull("applys"))
+            {
+                JSONArray applys = jObject.getJSONArray("applys");
+                for (int i = 0; i < applys.length(); i++)
+                {
+                    JSONObject obj = applys.getJSONObject(i);
+                    String name = obj.getString("name");
+                    String id = obj.getString("aid");
+                    // TODO: handle the request
+                    
+                }
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public void parserResponse(JSONObject jObject)
+    {
+        try
+        {
+            if (jObject.has("responses") && !jObject.isNull("responses"))
+            {
+                JSONArray arr = jObject.getJSONArray("responses");
+                for (int i = 0; i < arr.length(); i++)
+                {
+                    JSONObject obj = arr.getJSONObject(i);
+                    String name = obj.getString("name");
+                    String uid = obj.getString("uid");
+                    String res = obj.getString("res");
+                    if (res.startsWith("agree"))
+                    {
+                        // agree
+                    }
+                    else if (res.startsWith("reject"))
+                    {
+                        // rejected
+                        
+                    }
+                    // TODO: handle this
+                }
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public int parserLevelUp(JSONObject jObject)
+    {
+        int level = -1;
+        try
+        {
+            if (jObject.has("level") && !jObject.isNull("level"))
+            {
+                level = jObject.getInt("level");
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return level;
+    }
+    
+    public int parserPetLevelUp(JSONObject jObject)
+    {
+        int level = -1;
+        try
+        {
+            if (jObject.has("m_level") && !jObject.isNull("m_level"))
+            {
+                level = jObject.getInt("m_level");
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return level;
+    }
+    
+    public int parserBreakRelation(JSONObject jObject)
+    {
+        int hasbreak = -1;
+        try
+        {
+            if (jObject.has("break") && !jObject.isNull("break"))
+            {
+                hasbreak = jObject.getInt("break");
+                if (hasbreak == 1)
+                {
+                    // Some one terminate the relation.. :(
+                }
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return hasbreak;
+        
+    }
+    
+    public int parserOwnerChanged(JSONObject jObject)
+    {
+        int changed = -1;
+        try
+        {
+            if (jObject.has("owner") && !jObject.isNull("owner"))
+            {
+                changed = jObject.getInt("owner");
+                if (changed == 1)
+                {
+                    // I'm not the owner. :(
+                }
+            }
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return changed;
+    }
+    
+    public Gamer parserGamerInfo(JSONObject jObject)
+    {
+        Gamer gamer = new Gamer();
+        try
+        {
+            JSONObject obj = jObject.getJSONObject("gamer");
+            gamer.setName(obj.getString("name"));
+            gamer.setUid(obj.getString("uid"));
+            gamer.setType(obj.getString("type"));
+            gamer.setSex(obj.getString("sex"));
+            gamer.setLevel(obj.getInt("level"));
+            gamer.setLevelup(obj.getInt("levelup"));
+            gamer.setElement(obj.getString("element"));
+            gamer.setExp(obj.getString("exp"));
+            gamer.setMoney(obj.getInt("money"));
+            gamer.setSign(obj.getString("sign"));
+            
+            if (jObject.has("martyr") && !jObject.isNull("martyr"))
+            {
+                Martyr martyr = new Martyr();
+                JSONObject m = jObject.getJSONObject("martyr");
+            }
+            
+        }
+        catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return gamer;
+    }
+    
 }
