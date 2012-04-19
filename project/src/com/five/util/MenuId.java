@@ -1,5 +1,5 @@
 package com.five.util;
-
+@Deprecated
 public class MenuId
 {
     /**

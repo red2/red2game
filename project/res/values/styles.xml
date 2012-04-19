@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<style name="user_message">
-		<item name="android:textSize">16.0sp</item>
+		<item name="android:textSize">14.0sp</item>
 		<item name="android:textColor">#FFFFFFFF</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:layout_width">wrap_content</item>

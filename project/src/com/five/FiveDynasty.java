@@ -5,9 +5,11 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +20,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.five.db.DataSharedPreferences;
+import com.five.db.DataTable;
 import com.five.http.HttpConnectEvent;
 import com.five.http.HttpConnectionUtils;
 import com.five.http.HttpHandler;
 import com.five.http.Url;
+import com.five.model.UserInfo;
 import com.five.services.FiveService;
 import com.five.util.MenuId;
 import com.five.view.ActivityActivity;
@@ -34,78 +38,78 @@ import com.five.view.MoneyActivity;
 import com.five.view.MsgActivity;
 import com.five.view.MyCastleActivity;
 import com.five.view.PetActivity;
-import com.five.view.SmsListViewActivity;
 import com.five.view.VagrantActivity;
 
 public class FiveDynasty extends Activity implements MenuView.onButtonClickLisener, View.OnClickListener
 {
-    
+
     private static final String TAG = "FiveDynasty";
-    
+
     /**
      * MenuBar
      */
-    private MenuView menuBar;
-    
+    // private MenuView menuBar;
     /**
      * MenuBar的id
      */
-    private int[] m_arryMenuIds =
-    {
-            MenuId.ID_MENU_CONNECTION, MenuId.ID_MENU_CASTLE, MenuId.ID_MENU_VAGRANT, MenuId.ID_MENU_FIVE_DYNASTY, MenuId.ID_MENU_ACTIVITY
-    };
-    
+    // private int[] m_arryMenuIds =
+    // {
+    // MenuId.ID_MENU_CONNECTION, MenuId.ID_MENU_CASTLE, MenuId.ID_MENU_VAGRANT,
+    // MenuId.ID_MENU_FIVE_DYNASTY, MenuId.ID_MENU_ACTIVITY
+    // };
     /**
      * 属性
      */
-    Button attributeButton;
-    
+    // Button attributeButton;
     /**
      * 赚钱
      */
-    Button moneyButton;
-    
+    // Button moneyButton;
     /**
      * 背包
      */
-    Button bagButton;
-    
+    // Button bagButton;
     /**
-     * 消息
+     * 帮助
      */
-    Button msgButton;
-    
+    Button buttonHelp;
+
+    /**
+     * 设置
+     */
+    Button buttonSetting;
+
     ImageView iv;
-    
+
     AnimationDrawable animationDrawable;
-    
-    Button newButton;
-    
+
+    // Button newButton;
+
     /**
      * 角色
      */
     Spinner spinnerRole = null;
-    
+
     /**
      * 
      */
     ArrayAdapter<String> adapterRole = null;
-    
+
     /**
      * 
      */
     ArrayAdapter<String> adapterTime = null;
-    
+
     /**
      * 性别
      */
     Spinner spinnerSex = null;
-    
+
     /**
      * 
      */
     ArrayAdapter<String> adapterSex = null;
-    
+
     /**
      * 性别
      */
@@ -113,7 +117,7 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
     {
             "男", "女"
     };
-    
+
     /**
      * 角色
      */
@@ -121,7 +125,7 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
     {
             "吃货", "女吃货", "水货", "女水货", "不知道"
     };
-    
+
     /**
      * 朝代
      */
@@ -129,57 +133,57 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
     {
             "唐朝", "宋代", "清朝", "2012年", "明朝"
     };
-    
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+
         // 顶部的状态栏
-        attributeButton = (Button) findViewById(R.id.attribute);
-        attributeButton.setOnClickListener(this);
-        
+        // attributeButton = (Button) findViewById(R.id.attribute);
+        // attributeButton.setOnClickListener(this);
+
         // 赚钱
-        moneyButton = (Button) findViewById(R.id.money);
-        moneyButton.setOnClickListener(this);
-        
+        buttonSetting = (Button) findViewById(R.id.bt_setting);
+        buttonSetting.setOnClickListener(this);
+
         // 背包
-        bagButton = (Button) findViewById(R.id.bag);
-        bagButton.setOnClickListener(this);
-        
-        // 消息
-        msgButton = (Button) findViewById(R.id.msg);
-        msgButton.setOnClickListener(this);
-        
+        // bagButton = (Button) findViewById(R.id.bag);
+        // bagButton.setOnClickListener(this);
+
+        // 帮助
+        buttonHelp = (Button) findViewById(R.id.bt_help);
+        buttonHelp.setOnClickListener(this);
+
         // 创建用户
-        newButton = (Button) findViewById(R.id.create);
-        newButton.setOnClickListener(this);
-        
+        // newButton = (Button) findViewById(R.id.create);
+        // newButton.setOnClickListener(this);
+
         //
         iv = (ImageView) findViewById(R.id.animation_image);
         iv.setBackgroundResource(R.anim.animation_1);
         iv.setOnClickListener(this);
         animationDrawable = (AnimationDrawable) iv.getBackground();
         animationDrawable.setOneShot(false);
-        
+
         // 底部的MenuBar
-        menuBar = (MenuView) findViewById(R.id.gridview);
-        menuBar.setListener(this);
-        menuBar.setMenuId(m_arryMenuIds);
-        
+        // menuBar = (MenuView) findViewById(R.id.gridview);
+        // menuBar.setListener(this);
+        // menuBar.setMenuId(m_arryMenuIds);
+
         // 创建并 启动服务
         Intent intent = new Intent(this, FiveService.class);
         startService(intent);
-        
+
         // 如果是第一次运行则弹出 完善信息窗口
         if (DataSharedPreferences.getInstance().isFirstRun(this))
         {
             showComplementInfoDialog();
         }
     }
-    
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus)
     {
@@ -190,7 +194,7 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
         // TODO Auto-generated method stub
         super.onWindowFocusChanged(hasFocus);
     }
-    
+
     @Override
     public void onMenuItemClick(int menuId)
     {
@@ -232,12 +236,12 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
                 startActivity(intent);
             }
                 break;
-            
+
             default:
                 break;
         }
     }
-    
+
     @Override
     public void onClick(View v)
     {
@@ -248,35 +252,35 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
             intent.setClass(FiveDynasty.this, PetActivity.class);
             startActivity(intent);
         }
-        else if (v.equals(msgButton))
-        {
-            // 消息
-            Intent intent = new Intent();
-            intent.setClass(FiveDynasty.this, MsgActivity.class);
-            startActivity(intent);
-            
-        }
-        else if (v.equals(bagButton))
-        {
-            // 背包
-            Intent intent = new Intent();
-            intent.setClass(FiveDynasty.this, BagActivity.class);
-            startActivity(intent);
-        }
-        else if (v.equals(moneyButton))
-        {
-            // 赚钱
-            Intent intent = new Intent();
-            intent.setClass(FiveDynasty.this, MoneyActivity.class);
-            startActivity(intent);
-        }
-        else if (v.equals(attributeButton))
-        {
-            // 属性
-            Intent intent = new Intent();
-            intent.setClass(FiveDynasty.this, AttributeActivity.class);
-            startActivity(intent);
-        }
+        // else if (v.equals(msgButton))
+        // {
+        // // 消息
+        // Intent intent = new Intent();
+        // intent.setClass(FiveDynasty.this, MsgActivity.class);
+        // startActivity(intent);
+        //
+        // }
+        // else if (v.equals(bagButton))
+        // {
+        // // 背包
+        // Intent intent = new Intent();
+        // intent.setClass(FiveDynasty.this, BagActivity.class);
+        // startActivity(intent);
+        // }
+        // else if (v.equals(moneyButton))
+        // {
+        // // 赚钱
+        // Intent intent = new Intent();
+        // intent.setClass(FiveDynasty.this, MoneyActivity.class);
+        // startActivity(intent);
+        // }
+        // else if (v.equals(attributeButton))
+        // {
+        // // 属性
+        // Intent intent = new Intent();
+        // intent.setClass(FiveDynasty.this, AttributeActivity.class);
+        // startActivity(intent);
+        // }
         else if (v.equals(mButtonSubmit))
         {
             // 提交
@@ -286,67 +290,63 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
             hcu.addPostParmeter("type", "le");
             hcu.addPostParmeter("sex", "female");
             hcu.post(Url.CreateUserConn, HttpConnectEvent.HTTP_CREATE_USER);
-            
+
         }
-        else if (v.equals(newButton))
-        {
-            // 随时能弹出修改信息
-            // showComplementInfoDialog();
-            // Intent intent = new Intent();
-            // intent.setClass(FiveDynasty.this, GameTestActivity.class);
-            // startActivity(intent);
-            // 测试openCV
-            // intent.setClass(FiveDynasty.this, Sample1Java.class);
-            // startActivity(intent);
-            
-            Intent intent = new Intent();
-            intent.setClass(FiveDynasty.this, SmsListViewActivity.class);
-            startActivity(intent);
-            
-//            UserInfo user = new UserInfo();
-//            user.setM_strUid("1234");
-//            user.setM_strName("name");
-//            user.setM_iRole(1);
-//            user.setM_iSex(0);
-//            user.setM_iLevel(10);
-//            user.setM_iLevelup(20);
-//            user.setM_iExp(30);
-//            user.setM_iElement(1);
-//            user.setM_strMoney("10000");
-//            user.setM_strSignature("ttttttttt");
-//            FiveApplication.mDb.insertUserData(user);
-//            
-//            // 读取
-//            Cursor cursor = FiveApplication.mDb.getUserMsg();
-//            if (cursor != null)
-//            {
-//                if (cursor.moveToFirst())
-//                {
-//                    UserInfo user1 = DataTable.parseUserInfoCursor(cursor);
-//                    if (user1 != null)
-//                    {
-//                        Log.i("uid======", "=========" + user1.getM_strUid());
-//                        Log.i("name======", "=========" + user1.getM_strName());
-//                        Log.i("type======", "=========" + user1.getM_iRole());
-//                        Log.i("sex======", "=========" + user1.getM_iSex());
-//                        Log.i("level======", "=========" + user1.getM_iLevel());
-//                        Log.i("levelup======", "=========" + user1.getM_iLevelup());
-//                        Log.i("exp======", "=========" + user1.getM_iExp());
-//                        Log.i("element======", "=========" + user1.getM_iElement());
-//                        Log.i("money======", "=========" + user1.getM_strMoney());
-//                        Log.i("sign======", "=========" + user1.getM_strSignature());
-//                    }
-//                }
-//            }
-//            cursor.close();
-        }
-        
+        // else if (v.equals(newButton))
+        // {
+        // 随时能弹出修改信息
+        // showComplementInfoDialog();
+        // Intent intent = new Intent();
+        // intent.setClass(FiveDynasty.this, GameTestActivity.class);
+        // startActivity(intent);
+        // 测试openCV
+        // intent.setClass(FiveDynasty.this, Sample1Java.class);
+        // startActivity(intent);
+        //
+        // UserInfo user = new UserInfo();
+        // user.setM_strUid("1234");
+        // user.setM_strName("name");
+        // user.setM_iRole(1);
+        // user.setM_iSex(0);
+        // user.setM_iLevel(10);
+        // user.setM_iLevelup(20);
+        // user.setM_iExp(30);
+        // user.setM_iElement(1);
+        // user.setM_strMoney("10000");
+        // user.setM_strSignature("ttttttttt");
+        // FiveApplication.mDb.insertUserData(user);
+        //
+        // // 读取
+        // Cursor cursor = FiveApplication.mDb.getUserMsg();
+        // if (cursor != null)
+        // {
+        // if (cursor.moveToFirst())
+        // {
+        // UserInfo user1 = DataTable.parseUserInfoCursor(cursor);
+        // if (user1 != null)
+        // {
+        // Log.i("uid======", "=========" + user1.getM_strUid());
+        // Log.i("name======", "=========" + user1.getM_strName());
+        // Log.i("type======", "=========" + user1.getM_iRole());
+        // Log.i("sex======", "=========" + user1.getM_iSex());
+        // Log.i("level======", "=========" + user1.getM_iLevel());
+        // Log.i("levelup======", "=========" + user1.getM_iLevelup());
+        // Log.i("exp======", "=========" + user1.getM_iExp());
+        // Log.i("element======", "=========" + user1.getM_iElement());
+        // Log.i("money======", "=========" + user1.getM_strMoney());
+        // Log.i("sign======", "=========" + user1.getM_strSignature());
+        // }
+        // }
+        // }
+        // cursor.close();
+        // }
+
     }
-    
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
-        
+
         switch (keyCode)
         {
             case KeyEvent.KEYCODE_BACK:
@@ -360,7 +360,7 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
         }
         return true;
     }
-    
+
     private Handler handler = new HttpHandler(FiveDynasty.this)
     {
         @Override
@@ -378,19 +378,19 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
                     }
                 }
                     break;
-                
+
                 default:
                     break;
             }
         }
-        
+
         @Override
         protected void failed(JSONObject jObject, int event)
         {
             // TODO Auto-generated method stub
             super.failed(jObject, event);
         }
-        
+
         @Override
         protected void error(int event)
         {
@@ -398,11 +398,11 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
             super.error(event);
         }
     };
-    
+
     View complementInfoView;
     Dialog complementInfoDialog;
     Button mButtonSubmit;
-    
+
     /**
      * 完善信息对话框
      */
@@ -414,21 +414,21 @@ public class FiveDynasty extends Activity implements MenuView.onButtonClickLisen
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         complementInfoDialog.addContentView(complementInfoView, params);
         complementInfoDialog.show();
-        
+
         //
         spinnerRole = (Spinner) complementInfoDialog.findViewById(R.id.spinner_role);
         adapterRole = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, this.roleArray);
         adapterRole.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRole.setAdapter(adapterRole);
-        
+
         spinnerSex = (Spinner) complementInfoDialog.findViewById(R.id.spinner_sex);
         adapterSex = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, this.sexArray);
         adapterSex.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSex.setAdapter(adapterSex);
-        
+
         //
         mButtonSubmit = (Button) complementInfoDialog.findViewById(R.id.button_submit);
         mButtonSubmit.setOnClickListener(this);
     }
-    
+
 }

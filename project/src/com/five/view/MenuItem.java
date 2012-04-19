@@ -1,7 +1,6 @@
 package com.five.view;
-
 import android.graphics.Bitmap;
-
+@Deprecated
 public class MenuItem
 {
     /**
