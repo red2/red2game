@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:background="@drawable/shape_menu_bar"
+		android:id="@+id/popwindow"
+		android:layout_height="300dip"
+		android:gravity="center_vertical|center_horizontal">
+		<!-- 米箱 -->
+		<Button
+			android:id="@+id/bt_rice_box"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			android:textSize="12.0sp"
+			style="@style/simple_button"
+			android:layout_margin="2.0dip"
+			android:text="米箱" />
+
+		<!-- 捕码器 -->
+		<Button
+			android:id="@+id/bt_code_machine"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			android:textSize="12.0sp"
+			style="@style/simple_button"
+			android:layout_margin="2.0dip"
+			android:text="捕码器" />
+	</LinearLayout>
+</LinearLayout>

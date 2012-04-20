@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:background="@drawable/shape_menu_bar"
+		android:id="@+id/popwindow"
+		android:layout_height="300dip"
+		android:gravity="center_vertical|center_horizontal">
+		<!-- 信箱 -->
+		<Button
+			android:id="@+id/bt_message_box"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			android:textSize="12.0sp"
+			style="@style/simple_button"
+			android:layout_margin="2.0dip"
+			android:text="信箱" />
+
+		<!-- 人脉 -->
+		<Button
+			android:id="@+id/bt_people_relation"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			android:textSize="12.0sp"
+			style="@style/simple_button"
+			android:layout_margin="2.0dip"
+			android:text="人脉" />
+
+		<!--工作 -->
+		<Button
+			android:id="@+id/bt_work"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			style="@style/simple_button"
+			android:textSize="12.0sp"
+			android:layout_margin="2.0dip"
+			android:text="工作" />
+
+		<!-- 任务 -->
+		<Button
+			android:id="@+id/bt_任务"
+			android:layout_width="wrap_content"
+			android:layout_height="30.0dip"
+			style="@style/simple_button"
+			android:textSize="12.0sp"
+			android:layout_margin="2.0dip"
+			android:text="任务" />
+	</LinearLayout>
+</LinearLayout>

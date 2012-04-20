@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_gravity="center"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-	<ImageView android:layout_gravity="center_horizontal"
-		android:id="@+id/item_image" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:src="@drawable/icon" />
-	<TextView android:layout_gravity="center_horizontal"
-		android:id="@+id/item_text" android:layout_marginTop="-5.0dip"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:textSize="12.0sp" android:text="xxxxxx" android:singleLine="true" />
+<LinearLayout
+	android:layout_gravity="center"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<ImageView
+		android:layout_gravity="center_horizontal"
+		android:id="@+id/item_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/icon" />
+	<TextView
+		android:layout_gravity="center_horizontal"
+		android:id="@+id/item_text"
+		android:layout_marginTop="-5.0dip"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12.0sp"
+		android:text="xxxxxx"
+		android:singleLine="true"
+		android:visibility="gone" />
 </LinearLayout>

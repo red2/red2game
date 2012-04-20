@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +24,7 @@ import com.five.R;
 import com.five.model.SmsListModel;
 import com.five.model.SmsModel;
 
-public class SmsListViewActivity extends Activity
+public class SmsListViewActivity extends Activity implements OnItemClickListener
 {
     /**
      * 信息列表
@@ -57,6 +60,7 @@ public class SmsListViewActivity extends Activity
             adapter.addItem(smslist);
         }
         listView_smsList.setAdapter(adapter);
+        listView_smsList.setOnItemClickListener(this);
     }
     
     /**
@@ -121,7 +125,7 @@ public class SmsListViewActivity extends Activity
                 Holder.tv_name.setText(smsList.getM_strName());
                 Holder.tv_date.setText(smsList.getM_strDate());
                 Holder.bt_size.setText(smsList.getM_strNumber());
-                if (Integer.parseInt(smsList.getM_strNumber())==0)
+                if (Integer.parseInt(smsList.getM_strNumber()) == 0)
                 {
                     Holder.bt_size.setVisibility(View.GONE);
                 }
@@ -140,5 +144,15 @@ public class SmsListViewActivity extends Activity
         static TextView tv_name = null;
         static TextView tv_date = null;
         static Button bt_size = null;
+    }
+    
+    @Override
+    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
+    {
+        // TODO Auto-generated method stub
+        Intent intent = new Intent();
+        intent.setClass(SmsListViewActivity.this, SmsViewActivity.class);
+        startActivity(intent);
+        
     }
 }
