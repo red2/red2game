@@ -230,7 +230,7 @@ public class FiveDynasty extends Activity implements View.OnClickListener
         startService(intent);
   */
         // 启动心跳
-        KeepAliveManager.getInstance(this).startKeepAlive(KeepAliveManager.KA_TYPE_DEFAULT, 2*60);
+        KeepAliveManager.getInstance(this).startKeepAlive(KeepAliveManager.KA_TYPE_DEFAULT, 60);
         
         // 如果是第一次运行则弹出 完善信息窗口
         if (DataSharedPreferences.getInstance().isFirstRun(this))

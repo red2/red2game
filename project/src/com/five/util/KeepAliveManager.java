@@ -1,6 +1,7 @@
 package com.five.util;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -66,11 +67,11 @@ public class KeepAliveManager
     }
     
     public void cancelAllTask(){
-        Set<Integer> keys = mTasks.keySet();
-        for(int i = 0; i < keys.size();i++){
-            mTasks.get(i).cancel();
-            mTasks.remove(i);
+        Iterator<Integer> it = mTasks.keySet().iterator();
+        while(it.hasNext()){
+            mTasks.get(it.next()).cancel();
         }
+        mTasks.clear();
     }
     
     private Handler handler = new HttpHandler(context, false)
@@ -112,7 +113,7 @@ public class KeepAliveManager
         {
             HttpConnectionUtils hcu = new HttpConnectionUtils(handler);
             // hcu.addGetParmeter("phone", phone);
-            hcu.get(Url.GetProtectQuestion, HttpConnectEvent.HTTP_KEEP_ALIVE_DEFAULT);
+            hcu.get(Url.KeepAlive, HttpConnectEvent.HTTP_KEEP_ALIVE_DEFAULT);
             
         }
         

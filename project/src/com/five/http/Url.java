@@ -170,4 +170,9 @@ public class Url
      * 获取密码保护问题
      */
     public static String GetProtectQuestion = host + "/question/reget?";
+    
+    /**
+     * 心跳
+     */
+    public static String KeepAlive = host + "/status";
 }
