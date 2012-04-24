@@ -31,6 +31,7 @@ import com.five.http.HttpHandler;
 import com.five.http.Url;
 import com.five.services.FiveService;
 import com.five.util.ConstValue;
+import com.five.util.KeepAliveManager;
 import com.five.util.MenuId;
 import com.five.view.PetActivity;
 import com.five.view.SmsListViewActivity;
@@ -223,9 +224,13 @@ public class FiveDynasty extends Activity implements View.OnClickListener
         animationDrawable = (AnimationDrawable) iv.getBackground();
         animationDrawable.setOneShot(false);
         
+/*
         // 创建并 启动服务
         Intent intent = new Intent(this, FiveService.class);
         startService(intent);
+  */
+        // 启动心跳
+        KeepAliveManager.getInstance(this).startKeepAlive(KeepAliveManager.KA_TYPE_DEFAULT, 2*60);
         
         // 如果是第一次运行则弹出 完善信息窗口
         if (DataSharedPreferences.getInstance().isFirstRun(this))
@@ -288,6 +293,13 @@ public class FiveDynasty extends Activity implements View.OnClickListener
         LinearLayout linearLayout1 = (LinearLayout) view1.findViewById(R.id.popwindow);
         LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(menu_item_width * 2, menu_item_height);
         linearLayout1.setLayoutParams(params1);
+    }
+    
+    @Override
+    protected void onDestroy()
+    {
+        KeepAliveManager.getInstance(this).cancelAllTask();
+        super.onDestroy();
     }
     
     @Override

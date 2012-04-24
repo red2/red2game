@@ -178,5 +178,7 @@ public class HttpConnectEvent
      * 昵称登录
      */
     public static final byte HTTP_Name_Login = 40;
+    
+    public static final byte HTTP_KEEP_ALIVE_DEFAULT = 41;
 
 }
