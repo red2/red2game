@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="horizontal" android:layout_width="fill_parent"
-		android:layout_height="45dip" android:background="#AA000000">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="45dip"
+		android:background="#AA000000">
 		<!-- 返回 -->
-		<Button android:id="@+id/back" android:layout_width="wrap_content"
-			android:layout_height="fill_parent" android:layout_alignParentRight="true"
-			android:layout_marginRight="10dip" style="@style/simple_button"
-			android:layout_margin="5.0dip" android:text="返\u0020回" />
+		<Button
+			android:id="@+id/back"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="10dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="返\u0020回" />
 	</LinearLayout>
-	
-	<ListView android:id="@+id/conn_path_lists" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-	
+
+	<ListView
+		android:id="@+id/conn_path_lists"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1" />
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="40dip"
+		android:background="@drawable/shape_5"
+		android:layout_alignParentBottom="true"
+		android:gravity="center_horizontal">
+		<!-- 刷新 -->
+		<Button
+			android:id="@+id/bt_refresh"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="20dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="刷\u0020新" />
+		<!-- 添加 -->
+		<Button
+			android:id="@+id/bt_add"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="20dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="添\u0020加" />
+		<!-- 搜索 -->
+		<Button
+			android:id="@+id/bt_search"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="20dip"
+			style="@style/simple_button"
+			android:layout_margin="5.0dip"
+			android:text="搜\u0020索" />
+	</LinearLayout>
+
 </LinearLayout>
