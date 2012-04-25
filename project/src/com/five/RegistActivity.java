@@ -98,7 +98,7 @@ public class RegistActivity extends Activity implements OnClickListener
             {
                 case HttpConnectEvent.HTTP_GET_Verfication:
                 {
-                    verify =  DataParser.getInstance().parserVerificationDate(jObject);
+                    verify =  DataParser.getInstance().parserVerificationData(jObject);
                     
                     // 关闭注册界面进入登录界面
                     RegistActivity.this.finish();

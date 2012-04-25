@@ -602,7 +602,7 @@ public class DataParser
      * @param obj
      * @return
      */
-    public String parserRegistDate(JSONObject obj)
+    public String parserRegistData(JSONObject obj)
     {
         String uid = null;
         try
@@ -623,7 +623,7 @@ public class DataParser
      * @param obj
      * @return
      */
-    public String parserVerificationDate(JSONObject obj)
+    public String parserVerificationData(JSONObject obj)
     {
         // 解析注册信息
         String verify = null;
@@ -700,7 +700,7 @@ public class DataParser
      * @param obj
      * @return
      */
-    public String parserFirstLoginDate(JSONObject jObject)
+    public String parserFirstLoginData(JSONObject jObject)
     {
         // TODO Auto-generated method stub
         String first = null;
@@ -716,7 +716,7 @@ public class DataParser
         return first;
     }
     
-    public String parserPhoneLoginDate(JSONObject jObject)
+    public String parserPhoneLoginData(JSONObject jObject)
     {
         // TODO Auto-generated method stub
         String uid = null;
@@ -734,7 +734,7 @@ public class DataParser
         return uid;
     }
     
-    public String parserNameLoginDate(JSONObject jObject)
+    public String parserNameLoginData(JSONObject jObject)
     {
         // TODO Auto-generated method stub
         String uid = null;
@@ -977,7 +977,6 @@ public class DataParser
         }
         catch (JSONException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         

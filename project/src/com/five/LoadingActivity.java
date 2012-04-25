@@ -123,7 +123,7 @@ public class LoadingActivity extends Activity implements OnClickListener
             switch(event)
             {
                 case HttpConnectEvent.HTTP_First_Login:
-                    String isFirst = DataParser.getInstance().parserFirstLoginDate(jObject);
+                    String isFirst = DataParser.getInstance().parserFirstLoginData(jObject);
                     if(isFirst.equals("yes"))
                     {
                         //第一次
@@ -143,7 +143,7 @@ public class LoadingActivity extends Activity implements OnClickListener
                     }
                     break;
                 case HttpConnectEvent.HTTP_REGIST:
-                    String uid = DataParser.getInstance().parserRegistDate(jObject);
+                    String uid = DataParser.getInstance().parserRegistData(jObject);
                     //获得uid后需要存在本地数据库里
                     userid = uid;
                     //进入完善信息界面
@@ -164,7 +164,7 @@ public class LoadingActivity extends Activity implements OnClickListener
                     LoadingActivity.this.finish();                
                     break;
                 case HttpConnectEvent.HTTP_Phone_Login:
-                    userid = DataParser.getInstance().parserPhoneLoginDate(jObject);
+                    userid = DataParser.getInstance().parserPhoneLoginData(jObject);
                     
                     // 缓存当前用户id
                     UserContext.getInstance().setUserid(userid);
@@ -178,7 +178,7 @@ public class LoadingActivity extends Activity implements OnClickListener
                     LoadingActivity.this.finish();  
                     break;
                 case HttpConnectEvent.HTTP_Name_Login:
-                    userid = DataParser.getInstance().parserNameLoginDate(jObject);
+                    userid = DataParser.getInstance().parserNameLoginData(jObject);
                     // 进入主页
                     Intent intent2 = new Intent();
                     intent2.setClass(LoadingActivity.this, FiveDynasty.class);

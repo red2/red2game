@@ -181,7 +181,7 @@ public class DataTable
         public static final String THREADID = "threadid";
         
         /**
-         * 对方昵称 如果在联系人表的话，才有意义，不然没必要
+         * 对方昵称 如果不在联系人表的话，才有意义，不然没必要
          */
         public static final String MESSAGER = "messager";
         
