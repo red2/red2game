@@ -1,6 +1,6 @@
 package com.five.model;
 
-@Deprecated
+
 public class UserInfo
 {
     

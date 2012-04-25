@@ -2,6 +2,7 @@ package com.five.model;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class BattleInfo
 {
     private String aname = "";

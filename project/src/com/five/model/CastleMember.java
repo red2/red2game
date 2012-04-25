@@ -1,5 +1,6 @@
 package com.five.model;
 
+@Deprecated
 public class CastleMember
 {
     private String name;

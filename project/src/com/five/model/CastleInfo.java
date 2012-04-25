@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @author Michael
  *
  */
+@Deprecated
 public class CastleInfo
 {    
     private String cid = "";

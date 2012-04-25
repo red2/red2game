@@ -7,8 +7,19 @@ package com.five.model;
  */
 public class Martyr
 {
+    /**
+     * 宠物昵称
+     */
     private String name;
+    
+    /**
+     * 宠物id
+     */
     private String mid;
+    
+    /**
+     * 宠物类型
+     */
     private String type;
     
     public String getName()

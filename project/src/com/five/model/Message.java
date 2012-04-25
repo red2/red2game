@@ -10,8 +10,7 @@ public class Message
     /**
      * 留言人昵称
      */
-    private String messager;
-    
+    private String messager;    
     private String mid ;
     private long date;
     private String content;

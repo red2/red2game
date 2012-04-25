@@ -1,5 +1,6 @@
 package com.five.model;
 
+@Deprecated
 public class CandidateInfo
 {
     private int votes;

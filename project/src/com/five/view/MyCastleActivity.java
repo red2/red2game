@@ -44,6 +44,7 @@ import com.five.util.DataParser;
  * @author a
  * 
  */
+@Deprecated
 public class MyCastleActivity extends Activity implements OnClickListener
 {
     private static String TAG = "MyCastleActivity";

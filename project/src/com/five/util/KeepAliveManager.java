@@ -10,6 +10,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.five.FiveApplication;
+import com.five.UserContext;
 import com.five.http.HttpConnectEvent;
 import com.five.http.HttpConnectionUtils;
 import com.five.http.HttpHandler;
@@ -112,7 +113,7 @@ public class KeepAliveManager
         public void run()
         {
             HttpConnectionUtils hcu = new HttpConnectionUtils(handler);
-            // hcu.addGetParmeter("phone", phone);
+            hcu.addGetParmeter("myid",UserContext.getInstance().getUserid());
             hcu.get(Url.KeepAlive, HttpConnectEvent.HTTP_KEEP_ALIVE_DEFAULT);
             
         }

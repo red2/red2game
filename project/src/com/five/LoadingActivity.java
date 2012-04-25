@@ -165,6 +165,10 @@ public class LoadingActivity extends Activity implements OnClickListener
                     break;
                 case HttpConnectEvent.HTTP_Phone_Login:
                     userid = DataParser.getInstance().parserPhoneLoginDate(jObject);
+                    
+                    // 缓存当前用户id
+                    UserContext.getInstance().setUserid(userid);
+                    
                     // 进入主页
                     Intent intent1 = new Intent();
                     intent1.setClass(LoadingActivity.this, FiveDynasty.class);

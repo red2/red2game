@@ -6,6 +6,7 @@ package com.five.model;
  * @author zhaomiao
  *
  */
+@Deprecated
 public class CastleBasic
 {
     private String cid = "";
