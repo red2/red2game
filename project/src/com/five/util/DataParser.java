@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
+import com.five.UserContext;
 import com.five.model.BattleInfo;
 import com.five.model.Candidate;
 import com.five.model.CandidateInfo;
@@ -838,7 +839,7 @@ public class DataParser
                     long date = msg.getLong("date");
                     String content = msg.getString("content");
                     
-                    Message m = new Message(messager, mid, date, content);
+                    Message m = new Message(mid, UserContext.getInstance().getUserid(), content, date, messager, Message.MSG_STATUS.UNREAD);
                     msgs.add(m);
                 }
                 
@@ -908,7 +909,8 @@ public class DataParser
     }
     
     /**
-     * 添加好友，回应信息， 
+     * 添加好友，回应信息，
+     * 
      * @param jObject
      */
     public void parserResponse(JSONObject jObject)
@@ -1072,7 +1074,7 @@ public class DataParser
         {
             JSONArray arr = jObject.getJSONArray("items");
             ArrayList<ShopInfo> shops = new ArrayList<ShopInfo>();
-            for(int i = 0; i < arr.length(); i++)
+            for (int i = 0; i < arr.length(); i++)
             {
                 JSONObject obj = arr.getJSONObject(i);
                 ShopInfo shop = new ShopInfo();
@@ -1081,7 +1083,7 @@ public class DataParser
                 shop.setSdesc(obj.getString("sdesc"));
                 shop.setType(obj.getString("type"));
                 shop.setDistrct(obj.getString("distrct"));
-                if(obj.has("distance") && !obj.isNull("distance"))
+                if (obj.has("distance") && !obj.isNull("distance"))
                 {
                     shop.setDistance(obj.getInt("distance"));
                 }

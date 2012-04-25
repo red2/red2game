@@ -168,15 +168,33 @@ public class DataTable
         public static final String CONTENT = "content";
         public static final String DATE = "date";
         
+        /**
+         * NORMAL = 0;
+         * UNREAD = 1; 
+         * DELETED = 2;
+         */
+        public static final String STATUS = "status";
+        
+        /**
+         * 发出的和收到的消息都存储对方UID，标注一个聊天序列
+         */
+        public static final String THREADID = "threadid";
+        
+        /**
+         * 对方昵称 如果在联系人表的话，才有意义，不然没必要
+         */
+        public static final String MESSAGER = "messager";
+        
         public static final String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + FROM + " TEXT," + TO + " TEXT," + CONTENT
-                + " TEXT," + DATE + " TEXT" + ")";
+                + " TEXT," + DATE + " TEXT," + MESSAGER + " TEXT," + THREADID + " TEXT " + STATUS + " INTEGER DEFAULT 1" +  ")";
         
     }
     
     /**
      * 宠物信息
-     * @author zhaomiao
-     *
+     * 
+     * @author 
+     * 
      */
     public interface TABLE_MARTYR extends BaseColumns
     {
@@ -185,8 +203,8 @@ public class DataTable
         public static final String MID = "mid";
         public static final String TYPE = "type";
         
-        public static final String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + MID + " TEXT," + NAME + " TEXT,"
-                + TYPE + " TYPE " + ")";
+        public static final String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + MID + " TEXT," + NAME + " TEXT," + TYPE
+                + " TYPE " + ")";
     }
     
 }

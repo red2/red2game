@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
+import com.five.UserContext;
+import com.five.model.Gamer;
+import com.five.model.Message;
 import com.five.model.UserInfo;
 
 public class FiveDatabase
@@ -207,23 +210,146 @@ public class FiveDatabase
         db.update(DataTable.TABLE_USERINFO.TABLE_NAME, values, DataTable.TABLE_USERINFO.UID + "=" + userid, null);
     }
     
-    public void clearUserInfo(int userid)
+    public void deleteUserInfo(int userid)
     {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         db.delete(DataTable.TABLE_USERINFO.TABLE_NAME, DataTable.TABLE_USERINFO.UID + "=" + userid, null);
     }
     
+    /*******************************************************
+     * \ Gamer \
+     *******************************************************/
+    public Gamer queryGamerInfo(int id)
+    {
+        Gamer gamer = new Gamer();
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.query(DataTable.TABLE_GAMER.TABLE_NAME, null, null, null, null, null, null);
+        try
+        {
+            if (cursor != null && cursor.moveToFirst())
+            {
+                gamer.setUid(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.UID)));
+                gamer.setName(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.NAME)));
+                gamer.setType(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.TYPE)));
+                gamer.setSex(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.SEX)));
+                gamer.setLevel(cursor.getInt(cursor.getColumnIndex(DataTable.TABLE_GAMER.LEVEL)));
+                gamer.setLevelup(cursor.getInt(cursor.getColumnIndex(DataTable.TABLE_GAMER.LEVELUP)));
+                gamer.setExp(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.EXP)));
+                gamer.setElement(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.ELEMENT)));
+                gamer.setMoney(cursor.getInt(cursor.getColumnIndex(DataTable.TABLE_GAMER.MONEY)));
+                gamer.setSign(cursor.getString(cursor.getColumnIndex(DataTable.TABLE_GAMER.SIGN)));
+            }
+        }
+        catch (Exception e)
+        {
+            
+        }
+        finally
+        {
+            if (cursor != null)
+            {
+                cursor.close();
+            }
+        }
+        
+        return gamer;
+    }
+    
     /**
+     * 插入一条玩家信息
      * 
-     * @param owner
-     * @param type
+     * @param wm
      * @return
      */
-    public Cursor getUserMsg(int userid)
+    public void insertGamer(Gamer gamer)
     {
-        SQLiteDatabase mDb = databaseHelper.getReadableDatabase();
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        try
+        {
+            db.beginTransaction();
+            
+            // 插入一条新消息
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(DataTable.TABLE_GAMER.UID, gamer.getUid());
+            initialValues.put(DataTable.TABLE_GAMER.NAME, gamer.getName());
+            initialValues.put(DataTable.TABLE_GAMER.TYPE, gamer.getType());
+            initialValues.put(DataTable.TABLE_GAMER.SEX, gamer.getSex());
+            initialValues.put(DataTable.TABLE_GAMER.LEVEL, gamer.getLevel());
+            initialValues.put(DataTable.TABLE_GAMER.LEVELUP, gamer.getLevelup());
+            initialValues.put(DataTable.TABLE_GAMER.EXP, gamer.getExp());
+            initialValues.put(DataTable.TABLE_GAMER.ELEMENT, gamer.getElement());
+            initialValues.put(DataTable.TABLE_GAMER.MONEY, gamer.getMoney());
+            initialValues.put(DataTable.TABLE_GAMER.SIGN, gamer.getSign());
+            
+            long id = db.insert(DataTable.TABLE_GAMER.TABLE_NAME, null, initialValues);
+            
+            if (-1 == id)
+            {
+                Log.e(TAG, "cann't insert the tweet : " + gamer.toString());
+            }
+            else
+            {
+                Log.v("TAG", "Insert Status");
+            }
+            db.setTransactionSuccessful();
+        }
+        finally
+        {
+            db.endTransaction();
+        }
+    }
+    
+    public void updateGamerInfo(String gamerid, ContentValues values)
+    {
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        db.update(DataTable.TABLE_GAMER.TABLE_NAME, values, DataTable.TABLE_GAMER.UID + "=" + gamerid, null);
+    }
+    
+    public void deleteGamer(int gamerid)
+    {
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        db.delete(DataTable.TABLE_GAMER.TABLE_NAME, DataTable.TABLE_GAMER.UID + "=" + gamerid, null);
+    }
+    
+    /************************************************************
+     * \ Martyr TODO \
+     ************************************************************/
+    
+    /************************************************************
+     * \ Message \
+     ************************************************************/
+    public Cursor queryMessage(int uid)
+    {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        return db.query(DataTable.TABLE_MESSAGE.TABLE_NAME, null, DataTable.TABLE_MESSAGE.FROM + "=" + uid + " or " + DataTable.TABLE_MESSAGE.TO + "=" + uid, null, null, null,
+                DataTable.TABLE_MESSAGE.DATE + " DESC");
+    }
+    
+    public Cursor queryAllMessages()
+    {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        return db.query(DataTable.TABLE_MESSAGE.TABLE_NAME, null, null, null, null, null, DataTable.TABLE_MESSAGE.DATE + " DESC");
+    }
+    
+    public void insertMessage(Message message)
+    {
+        ContentValues values = new ContentValues();
+        values.put(DataTable.TABLE_MESSAGE.FROM, message.getFrom());
+        values.put(DataTable.TABLE_MESSAGE.TO, message.getTo());
+        values.put(DataTable.TABLE_MESSAGE.CONTENT, message.getContent());
+        values.put(DataTable.TABLE_MESSAGE.DATE, message.getDate());
+        values.put(DataTable.TABLE_MESSAGE.MESSAGER, message.getMessager());
+        values.put(DataTable.TABLE_MESSAGE.STATUS, message.getStatus());
         
-        return mDb.query(DataTable.TABLE_MESSAGE.TABLE_NAME, null, DataTable.TABLE_MESSAGE.FROM + "=" + userid + " or " + DataTable.TABLE_MESSAGE.TO + "=" + userid, null, null, null, 
-                DataTable.TABLE_MESSAGE.DATE+" DESC");
+        values.put(DataTable.TABLE_MESSAGE.THREADID, message.getFrom().equals(UserContext.getInstance().getUserid()) ? message.getTo() : message.getFrom());
+        
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        db.insert(DataTable.TABLE_MESSAGE.TABLE_NAME, null, values);
+    }
+    
+    public void deleteMessage(Message message)
+    {
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        db.delete(DataTable.TABLE_MESSAGE.TABLE_NAME, DataTable.TABLE_MESSAGE._ID + "=" + message.getId(), null);
     }
 }
