@@ -43,7 +43,7 @@
 
 		<!-- 任务 -->
 		<Button
-			android:id="@+id/bt_任务"
+			android:id="@+id/bt_task"
 			android:layout_width="wrap_content"
 			android:layout_height="30.0dip"
 			style="@style/simple_button"

@@ -9,7 +9,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -26,13 +25,11 @@ import android.widget.Spinner;
 
 import com.five.db.DataSharedPreferences;
 import com.five.http.HttpConnectEvent;
-import com.five.http.HttpConnectionUtils;
 import com.five.http.HttpHandler;
-import com.five.http.Url;
 import com.five.services.FiveService;
 import com.five.util.ConstValue;
 import com.five.util.KeepAliveManager;
-import com.five.util.MenuId;
+import com.five.view.ConnectionPathActivity;
 import com.five.view.PetActivity;
 import com.five.view.SmsListViewActivity;
 
@@ -40,19 +37,7 @@ public class FiveDynasty extends Activity implements View.OnClickListener
 {
     
     private static final String TAG = "FiveDynasty";
-    
-    /**
-     * MenuBar
-     */
-    // private MenuView menuBar;
-    /**
-     * MenuBar的id
-     */
-    private int[] m_arryMenuIds =
-    {
-            MenuId.ID_MENU_CONNECTION, MenuId.ID_MENU_CASTLE, MenuId.ID_MENU_VAGRANT, MenuId.ID_MENU_FIVE_DYNASTY
-    };
-    
+
     /**
      * 帮助
      */
@@ -156,7 +141,22 @@ public class FiveDynasty extends Activity implements View.OnClickListener
      * 弹出菜单2
      */
     private PopupWindow pop2;
-    
+
+    /**
+     * 人脉
+     */
+    private Button buttonPeopleRelation;
+
+    /**
+     * 工作
+     */
+    private Button buttonWork;
+
+    /**
+     * 任务
+     */
+    private Button buttonTask;
+
     /**
      * 根view
      */
@@ -263,11 +263,23 @@ public class FiveDynasty extends Activity implements View.OnClickListener
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.popwindow);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(menu_item_width * 4, menu_item_height);
         linearLayout.setLayoutParams(params);
-        
-        //
-        buttonMessageBox =  (Button) view.findViewById(R.id.bt_message_box);
+
+        // 信箱
+        buttonMessageBox = (Button) view.findViewById(R.id.bt_message_box);
         buttonMessageBox.setOnClickListener(this);
-        
+
+        // 人脉
+        buttonPeopleRelation = (Button) view.findViewById(R.id.bt_people_relation);
+        buttonPeopleRelation.setOnClickListener(this);
+
+        // 工作
+        buttonWork = (Button) view.findViewById(R.id.bt_work);
+        buttonWork.setOnClickListener(this);
+
+        // 任务
+        buttonTask = (Button) view.findViewById(R.id.bt_task);
+        buttonTask.setOnClickListener(this);
+
         // 返米箱
         View view1 = this.getLayoutInflater().inflate(R.layout.pop_menu2, null);
         pop2 = new PopupWindow(view1, menu_item_width * 2 + temp, menu_item_height);
@@ -346,6 +358,21 @@ public class FiveDynasty extends Activity implements View.OnClickListener
             {
                 pop1.showAtLocation(currentView, Gravity.LEFT | Gravity.BOTTOM, temp, menuBar.getHeight() + temp);
             }
+        }
+        else if (v.equals(buttonPeopleRelation))
+        {
+            // 人脉按钮
+            Intent intent = new Intent();
+            intent.setClass(FiveDynasty.this, ConnectionPathActivity.class);
+            startActivity(intent);
+        }
+        else if (v.equals(buttonTask))
+        {
+            // 任务
+        }
+        else if (v.equals(buttonWork))
+        {
+            // 工作
         }
         else if (v.equals(buttonReturnRice))
         {
@@ -543,5 +570,15 @@ public class FiveDynasty extends Activity implements View.OnClickListener
         mButtonSubmit = (Button) complementInfoDialog.findViewById(R.id.button_submit);
         mButtonSubmit.setOnClickListener(this);
     }
-    
+
+    @Override
+    protected void onRestart()
+    {
+        if (pop1.isShowing())
+        {
+            pop1.dismiss();
+        }
+        super.onRestart();
+    }
+
 }

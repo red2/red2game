@@ -1,48 +1,63 @@
 package com.five.view;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.five.R;
+import com.five.model.UserInfo;
 
+/**
+ * 人脉
+ * 
+ * 
+ */
 public class ConnectionPathActivity extends Activity
 {
     private ListView mPathList;
-    private ArrayList<Map<String, Object>> mConnList = new ArrayList<Map<String, Object>>();
     
     private Button mBtnBack;
+    
+    private ConnListAdapter connListAdapter;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connection_path);
         
-        for (int i = 0; i < 5; i++)
-        {
-            HashMap<String, Object> item = new HashMap<String, Object>();
-            item.put("path", "name1-name2-name3-name4");
-            mConnList.add(item);
-        }
+        //
+        UserInfo userInfo = null;
         
         mPathList = (ListView) findViewById(R.id.conn_path_lists);
-        mPathList.setAdapter(new ConnListAdapter(this));
+        connListAdapter = new ConnListAdapter(this);
+        mPathList.setAdapter(connListAdapter);
         
+        // 测试数据
+        for (int j = 0; j < 10; j++)
+        {
+            userInfo = new UserInfo();
+            userInfo.setM_imgHead(BitmapFactory.decodeResource(getResources(), R.drawable.head));
+            userInfo.setM_strName("姓名" + j);
+            userInfo.setM_iLevel(10);
+            connListAdapter.addItem(userInfo);
+        }
         
         mBtnBack = (Button) findViewById(R.id.back);
-        if(mBtnBack != null){
+        if (mBtnBack != null)
+        {
             mBtnBack.setOnClickListener(new OnClickListener()
             {
                 
@@ -53,7 +68,7 @@ public class ConnectionPathActivity extends Activity
                 }
             });
         }
-       
+        
     }
     
     class ConnListAdapter extends BaseAdapter
@@ -61,41 +76,67 @@ public class ConnectionPathActivity extends Activity
         
         private Context mContext;
         
+        private ArrayList<UserInfo> items;
+        
+        private LayoutInflater layoutInflater;
+        
         public ConnListAdapter(Context context)
         {
             mContext = context;
+            items = new ArrayList<UserInfo>();
+            this.layoutInflater = LayoutInflater.from(mContext);
+        }
+        
+        public void addItem(UserInfo info)
+        {
+            items.add(info);
         }
         
         @Override
         public int getCount()
         {
             // TODO Auto-generated method stub
-            return mConnList.size();
+            return items.size();
         }
         
         @Override
-        public Object getItem(int arg0)
+        public Object getItem(int position)
         {
             // TODO Auto-generated method stub
-            return Integer.valueOf(arg0);
+            return items.get(position);
         }
         
         @Override
-        public long getItemId(int arg0)
+        public long getItemId(int position)
         {
             // TODO Auto-generated method stub
-            return arg0;
+            return position;
         }
         
         @Override
-        public View getView(int position, View view, ViewGroup group)
+        public View getView(int position, View convertView, ViewGroup parent)
         {
-            // TODO Auto-generated method stub
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.mContext, R.layout.connection_path_item, null);
-            TextView tv = (TextView) linearLayout.findViewById(R.id.con_path_item_first);
-            tv.setText((CharSequence) mConnList.get(position).get("path"));
-            return linearLayout;
+            UserInfo info = items.get(position);
+            if (info != null)
+            {
+                convertView = this.layoutInflater.inflate(R.layout.connection_path_item, null);
+                Holder.iv_icon = (ImageView) convertView.findViewById(R.id.img_head);
+                Holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+                Holder.tv_level = (TextView) convertView.findViewById(R.id.tv_level);
+                
+                Holder.iv_icon.setImageBitmap(info.getM_imgHead());
+                Holder.tv_name.setText(info.getM_strName());
+                Holder.tv_level.setText("等级：" + info.getM_iLevel());
+            }
+            return convertView;
         }
         
+    }
+    
+    static class Holder
+    {
+        static ImageView iv_icon = null;
+        static TextView tv_name = null;
+        static TextView tv_level = null;
     }
 }

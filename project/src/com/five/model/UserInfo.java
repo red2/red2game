@@ -1,5 +1,6 @@
 package com.five.model;
 
+import android.graphics.Bitmap;
 
 public class UserInfo
 {
@@ -7,7 +8,11 @@ public class UserInfo
     public UserInfo()
     {
     }
-    
+    /**
+     * 头像
+     */
+    private Bitmap m_imgHead;
+
     /**
      * 用户id-char(20)
      */
@@ -202,5 +207,15 @@ public class UserInfo
     {
         this.m_iMsg = m_iMsg;
     }
-    
+
+    public Bitmap getM_imgHead()
+    {
+        return m_imgHead;
+    }
+
+    public void setM_imgHead(Bitmap head)
+    {
+        m_imgHead = head;
+    }
+
 }

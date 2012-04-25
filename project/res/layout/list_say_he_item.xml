@@ -9,6 +9,6 @@
 		android:layout_height="wrap_content" android:id="@+id/tv_sms_content"
 		android:background="@drawable/incoming" android:textColor="#ff000000"
 		android:layout_toRightOf="@+id/message_head_icon"
-		android:layout_marginLeft="5.0dip">
+		android:layout_marginLeft="5.0dip" android:textSize="16.0sp">
 	</TextView>
 </LinearLayout>
