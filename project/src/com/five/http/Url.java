@@ -5,7 +5,7 @@ public class Url
     /**
      * host
      */
-    private static String host = "http://192.168.1.4:8080/five-dynasty/v1";
+    private static String host = "http://www.red2game.com/five-dynasty/v1/";
     
     /**
      * 注册
@@ -32,7 +32,7 @@ public class Url
     /**
      * 登录 get方式 /参数 uid=用户id----修改签名post方式sign=用户签名
      */
-    public static String LoginConn = host + "/basic-info?"; 
+    public static String LoginConn = host + "/basic-info?";
     
     /**
      * 修改密码
@@ -97,7 +97,7 @@ public class Url
     /**
      * 申请加入城堡
      */
-    public static String Request_Join_Castle  = host + "/castle/join";
+    public static String Request_Join_Castle = host + "/castle/join";
     
     /**
      * 退出城堡
@@ -145,11 +145,10 @@ public class Url
      */
     public static String UserGetChallenge = host + "/challenge?";
     
-    
     /**
      * 提交密码保护信息
      */
-    public static String ProtectedPassword= host + "/password/protect?";
+    public static String ProtectedPassword = host + "/password/protect?";
     
     /**
      * 修改密码
@@ -175,4 +174,20 @@ public class Url
      * 心跳
      */
     public static String KeepAlive = host + "/status";
+    
+    /**
+     * 获取附件商家
+     */
+    public static String GetShopsNearby = host + "/lbs/nearby";
+    
+    public static String SearchShopsWithKeyword = host + "/lbs/search";
+    
+    public static String SearchShopsWithKeywordSortByDistance = host + "/lbs/search/distance";
+    
+    public static String SearchShopsByDistrict = host + "/lbs/chioce";
+    
+    public static String SearchShopsByDistrictSortedByDistance = host + "/lbs/search/distance";
+    
+    public static String CheckIn = host + "/lbs/checkin";
+    
 }

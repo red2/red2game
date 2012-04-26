@@ -180,5 +180,17 @@ public class HttpConnectEvent
     public static final byte HTTP_Name_Login = 40;
     
     public static final byte HTTP_KEEP_ALIVE_DEFAULT = 41;
+    
+    public static final byte HTTP_GET_SHOPS_NEARBY = 42;
+    
+    public static final byte HTTP_SEARCH_SHOPS_KEYWORD = 43;
+    
+    public static final byte HTTP_SEARCH_SHOPS_KEYWORD_AND_DISTANCE_SORTED = 44;
+    
+    public static final byte HTTP_SEARCH_SHOPS_BY_DISTRICT = 45;
+    
+    public static final byte HTTP_SEARCH_SHOPS_BY_DISTRICT_DISTANCE_SORTED = 46;
+    
+    public static final byte HTTP_GET_CHECKIN = 47;
 
 }

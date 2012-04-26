@@ -1,141 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.five"
-	android:versionCode="1"
-	android:versionName="1.0">
-	<uses-sdk
-		android:minSdkVersion="1" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.five"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-	<application
-		android:icon="@drawable/icon"
-		android:label="@string/app_name"
-		android:name="FiveApplication">
-		<activity
-			android:name=".LoadingActivity"
-			android:label="@string/app_name">
-			<intent-filter>
-				<action
-					android:name="android.intent.action.MAIN" />
-				<category
-					android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
+    <uses-sdk android:minSdkVersion="1" />
 
-		<!-- 加载 -->
-		<activity
-			android:name="com.five.FiveDynasty" />
+    <application
+        android:name="FiveApplication"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".LoadingActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-		<!-- 消息/背包/属性/赚钱 -->
-		<activity
-			android:name="com.five.view.MsgActivity" />
-		<activity
-			android:name="com.five.view.BagActivity" />
-		<activity
-			android:name="com.five.view.AttributeActivity" />
-		<activity
-			android:name="com.five.view.MoneyActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-		<!-- 人脉/我的城堡/走江湖/闯五朝/活动 -->
-		<activity
-			android:name="com.five.view.ConnectionsActivity" />
-		<activity
-			android:name="com.five.view.MyCastleActivity" />
-		<activity
-			android:name="com.five.view.VagrantActivity" />
-		<activity
-			android:name="com.five.view.FiveActivity" />
-		<activity
-			android:name="com.five.view.ActivityActivity" />
+        <!-- 加载 -->
+        <activity android:name="com.five.FiveDynasty" />
 
-		<!-- 活动内容 -->
-		<activity
-			android:name="com.five.view.ActivityContentActivity" />
+        <!-- 消息/背包/属性/赚钱 -->
+        <activity android:name="com.five.view.MsgActivity" />
+        <activity android:name="com.five.view.BagActivity" />
+        <activity android:name="com.five.view.AttributeActivity" />
+        <activity android:name="com.five.view.MoneyActivity" />
 
-		<!-- 人脉信息页 -->
-		<activity
-			android:name="com.five.view.ConnectionMessageActivity" />
+        <!-- 人脉/我的城堡/走江湖/闯五朝/活动 -->
+        <activity android:name="com.five.view.ConnectionsActivity" />
+        <activity android:name="com.five.view.MyCastleActivity" />
+        <activity android:name="com.five.view.VagrantActivity" />
+        <activity android:name="com.five.view.FiveActivity" />
+        <activity android:name="com.five.view.ActivityActivity" />
 
-		<!-- 进入商家信息页面 -->
-		<activity
-			android:name="com.five.view.TradeCompanyActivity" />
-		<activity
-			android:name="com.five.view.PetActivity" />
-		<activity
-			android:name="com.five.view.PetOutActivity" />
-		<activity
-			android:name="com.five.view.PetSongActivity" />
-		<activity
-			android:name="com.five.view.MoraActivity" />
-		<activity
-			android:name="com.five.view.TournamentActivity" />
+        <!-- 活动内容 -->
+        <activity android:name="com.five.view.ActivityContentActivity" />
 
-		<activity
-			android:name="com.five.view.PlayerListActivity" />
-		<!-- 好友主页 -->
-		<activity
-			android:name="com.five.view.FriendActivity" />
-		<activity
-			android:name="com.five.view.ConnectionPathActivity" />
+        <!-- 人脉信息页 -->
+        <activity android:name="com.five.view.ConnectionMessageActivity" />
 
-		<service
-			android:name="services.FiveService" />
+        <!-- 进入商家信息页面 -->
+        <activity android:name="com.five.view.TradeCompanyActivity" />
+        <activity android:name="com.five.view.PetActivity" />
+        <activity android:name="com.five.view.PetOutActivity" />
+        <activity android:name="com.five.view.PetSongActivity" />
+        <activity android:name="com.five.view.MoraActivity" />
+        <activity android:name="com.five.view.TournamentActivity" />
+        <activity android:name="com.five.view.PlayerListActivity" />
+        <!-- 好友主页 -->
+        <activity android:name="com.five.view.FriendActivity" />
+        <activity android:name="com.five.view.ConnectionPathActivity" />
 
-		<!-- 游戏测试 -->
-		<activity
-			android:name="test.GameTestActivity" />
+        <service android:name="services.FiveService" />
 
-		<!-- openCV测试 -->
-		<activity
-			android:name="com.five.opencv.Sample1Java" />
+        <!-- 游戏测试 -->
+        <activity android:name="test.GameTestActivity" />
 
-		<activity
-			android:name="com.five.game.FistGameActivity" />
+        <!-- openCV测试 -->
+        <activity android:name="com.five.opencv.Sample1Java" />
+        <activity android:name="com.five.game.FistGameActivity" />
 
-		<!-- 注册 -->
-		<activity
-			android:name="com.five.RegistActivity" />
+        <!-- 注册 -->
+        <activity android:name="com.five.RegistActivity" />
 
-		<!-- 重新获取密码 -->
-		<activity
-			android:name="com.five.GetPassworActivity" />
+        <!-- 重新获取密码 -->
+        <activity android:name="com.five.GetPassworActivity" />
 
-		<!-- 设置 -->
-		<activity
-			android:name="com.five.SettingActivity" />
+        <!-- 设置 -->
+        <activity android:name="com.five.SettingActivity" />
 
-		<!-- 密码保护 -->
-		<activity
-			android:name="com.five.ProtectPasswordActivity" />
+        <!-- 密码保护 -->
+        <activity android:name="com.five.ProtectPasswordActivity" />
 
-		<!-- 修改密码 -->
-		<activity
-			android:name="com.five.ModifyPasswordActivity" />
-		<!-- 修改手机号 -->
-		<activity
-			android:name="com.five.ModifyPhoneNumberActivity" />
+        <!-- 修改密码 -->
+        <activity android:name="com.five.ModifyPasswordActivity" />
+        <!-- 修改手机号 -->
+        <activity android:name="com.five.ModifyPhoneNumberActivity" />
 
-		<!-- 获取密码时候的密码保护问题界面 -->
-		<activity
-			android:name="com.five.GetPasswordQuestionActivity" />
+        <!-- 获取密码时候的密码保护问题界面 -->
+        <activity android:name="com.five.GetPasswordQuestionActivity" />
 
-		<!--短消息列表界面 -->
-		<activity
-			android:name="com.five.view.SmsListViewActivity" />
+        <!-- 短消息列表界面 -->
+        <activity android:name="com.five.view.SmsListViewActivity" />
 
-		<!--短消息界面 -->
-		<activity
-			android:name="com.five.view.SmsViewActivity" />
+        <!-- 短消息界面 -->
+        <activity android:name="com.five.view.SmsViewActivity" />
+        
+        <!-- 地盘 -->
+        <activity android:name="com.five.view.TerritoryListActivity" >
+        </activity>
+    </application>
 
-	</application>
-	<uses-permission
-		android:name="android.permission.INTERNET"></uses-permission>
-	<uses-permission
-		android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-	<uses-permission
-		android:name="android.permission.CAMERA" />
-	<uses-feature
-		android:name="android.hardware.camera" />
-	<uses-feature
-		android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
 </manifest>
