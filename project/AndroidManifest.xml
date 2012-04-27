@@ -53,6 +53,7 @@
         <!-- 好友主页 -->
         <activity android:name="com.five.view.FriendActivity" />
         <activity android:name="com.five.view.ConnectionPathActivity" />
+		<activity android:name="com.five.view.AddFriendActivity" />
 
         <service android:name="services.FiveService" />
 

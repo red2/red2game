@@ -28,76 +28,86 @@ public class PetActivity extends Activity implements View.OnClickListener
      * 返回
      */
     private Button mButtonBack;
-    
+
     /**
-     * 修改签名
+     * 属性
      */
-    private Button mButtonModify;
-    
+    private Button mButtonAttribute;
+
     /**
      * 喂食
      */
     private Button mButtonEat;
-    
+
     /**
-     * 外出
+     * 挑逗
      */
-    private Button mButtonOut;
-    
+    private Button mButtonPlay;
+
     /**
-     * 练习
+     * 嗦使
      */
-    private Button mButtonExercise;
-    
+    private Button mButtonTech;
+
     /**
-     * 唱歌
+     * 宠物
      */
-    private Button mButtonSong;
-    
-    private ImageView iv;
-    
+    private ImageView iv_petImage;
+
+    private ImageView iv_peopleImage;
+
     private AnimationDrawable animationDrawable;
-    
+
     private HttpConnectionUtils hcu;
-    
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_pet_view);
-        
+
         // 初始化按钮
-        mButtonBack = (Button) findViewById(R.id.back);
+        mButtonBack = (Button) findViewById(R.id.bt_back);
         mButtonBack.setOnClickListener(this);
-        mButtonModify = (Button) findViewById(R.id.modify);
-        mButtonModify.setOnClickListener(this);
-        mButtonEat = (Button) findViewById(R.id.btn_eat);
+
+        // 属性
+        mButtonAttribute = (Button) findViewById(R.id.bt_attribute);
+        mButtonAttribute.setOnClickListener(this);
+
+        // 喂食
+        mButtonEat = (Button) findViewById(R.id.bt_eat);
         mButtonEat.setOnClickListener(this);
-        mButtonOut = (Button) findViewById(R.id.btn_out);
-        mButtonOut.setOnClickListener(this);
-        mButtonExercise = (Button) findViewById(R.id.btn_exercise);
-        mButtonExercise.setOnClickListener(this);
-        mButtonSong = (Button) findViewById(R.id.btn_song);
-        mButtonSong.setOnClickListener(this);
-        
+
+        // 挑逗
+        mButtonPlay = (Button) findViewById(R.id.bt_play);
+        mButtonPlay.setOnClickListener(this);
+
+        // 嗦使
+        mButtonTech = (Button) findViewById(R.id.bt_tech);
+        mButtonTech.setOnClickListener(this);
+
         //
-        iv = (ImageView) findViewById(R.id.pet_image);
-        iv.setBackgroundResource(R.anim.animation_pet);
-        animationDrawable = (AnimationDrawable) iv.getBackground();
+        iv_petImage = (ImageView) findViewById(R.id.pet_image);
+        iv_petImage.setBackgroundResource(R.anim.animation_pet);
+        animationDrawable = (AnimationDrawable) iv_petImage.getBackground();
         animationDrawable.setOneShot(true);
-        
+
+        //
+        iv_peopleImage = (ImageView) findViewById(R.id.animation_man_image);
+        iv_peopleImage.setOnClickListener(this);
     }
-    
+
     @Override
     public void onClick(View v)
     {
         // TODO Auto-generated method stub
-        if (v.equals(mButtonBack))
+        if (v.equals(mButtonBack) || v.equals(iv_peopleImage))
         {
             finish();
         }
-        else if (v.equals(mButtonModify))
+        else if (v.equals(mButtonAttribute))
         {
-            showModifyDialog();
+            // 属性
+            // showModifyDialog();
         }
         else if (v.equals(mButtonEat))
         {
@@ -107,7 +117,7 @@ public class PetActivity extends Activity implements View.OnClickListener
                 animationDrawable.stop();
             }
             animationDrawable.start();
-            
+
             // feed、sing、play、learn、abet
             if (hcu == null)
             {
@@ -117,26 +127,17 @@ public class PetActivity extends Activity implements View.OnClickListener
             hcu.addPostParmeter("mid", "宠物id");
             hcu.addPostParmeter("option", "feed");
             hcu.post(Url.PetInteractive, HttpConnectEvent.HTTP_PET_INTERACTIVE);
-            
+
         }
-        else if (v.equals(mButtonOut))
+        else if (v.equals(mButtonPlay))
         {
-            // 外出
-            Intent intent = new Intent();
-            intent.setClass(this, PetOutActivity.class);
-            startActivity(intent);
-            
-            //
-        }
-        else if (v.equals(mButtonExercise))
-        {
-            // 练习
+            // 挑逗
             if (animationDrawable.isRunning())
             {
                 animationDrawable.stop();
             }
             animationDrawable.start();
-            
+
             // feed、sing、play、learn、abet
             if (hcu == null)
             {
@@ -147,13 +148,13 @@ public class PetActivity extends Activity implements View.OnClickListener
             hcu.addPostParmeter("option", "learn");
             hcu.post(Url.PetInteractive, HttpConnectEvent.HTTP_PET_INTERACTIVE);
         }
-        else if (v.equals(mButtonSong))
+        else if (v.equals(mButtonTech))
         {
-            // 唱歌
-            Intent intent = new Intent();
-            intent.setClass(this, PetSongActivity.class);
-            startActivity(intent);
-            
+            // 嗦使
+            // Intent intent = new Intent();
+            // intent.setClass(this, PetSongActivity.class);
+            // startActivity(intent);
+
             //
             if (hcu == null)
             {
@@ -164,39 +165,38 @@ public class PetActivity extends Activity implements View.OnClickListener
             hcu.addPostParmeter("option", "sing");
             hcu.post(Url.PetInteractive, HttpConnectEvent.HTTP_PET_INTERACTIVE);
         }
-        
-        else if (v.equals(mButtonOk))
-        {
-            // 修改宠物名称提交服务器
-            if (hcu == null)
-            {
-                hcu = new HttpConnectionUtils(handler);
-            }
-            hcu.addPostParmeter("uid", "10004");
-            hcu.addPostParmeter("mid", "宠物id");
-            hcu.addPostParmeter("name", mEditTextPetName.getText().toString());
-            hcu.post(Url.ModifyPetName, HttpConnectEvent.HTTP_MODIFY_PET_NAME);
-            
-        }
-        else if (v.equals(mButtonCancel))
-        {
-            if (mDialogPetMessage != null)
-            {
-                mDialogPetMessage.dismiss();
-            }
-        }
+        // else if (v.equals(mButtonOk))
+        // {
+        // // 修改宠物名称提交服务器
+        // if (hcu == null)
+        // {
+        // hcu = new HttpConnectionUtils(handler);
+        // }
+        // hcu.addPostParmeter("uid", "10004");
+        // hcu.addPostParmeter("mid", "宠物id");
+        // hcu.addPostParmeter("name", mEditTextPetName.getText().toString());
+        // hcu.post(Url.ModifyPetName, HttpConnectEvent.HTTP_MODIFY_PET_NAME);
+        //
+        // }
+        // else if (v.equals(mButtonCancel))
+        // {
+        // if (mDialogPetMessage != null)
+        // {
+        // mDialogPetMessage.dismiss();
+        // }
+        // }
     }
-    
+
     private View mViewDialog = null;
-    
+
     private Dialog mDialogPetMessage = null;
-    
+
     private Button mButtonOk;
-    
+
     private Button mButtonCancel;
-    
+
     private EditText mEditTextPetName;
-    
+
     /**
      * 显示修改信息Dialog
      */
@@ -211,14 +211,14 @@ public class PetActivity extends Activity implements View.OnClickListener
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         mDialogPetMessage.addContentView(mViewDialog, params);
         mDialogPetMessage.show();
-        
+
         //
         mButtonOk = (Button) mDialogPetMessage.findViewById(R.id.button_ok);
         mButtonOk.setOnClickListener(this);
         mButtonCancel = (Button) mDialogPetMessage.findViewById(R.id.button_cancel);
         mButtonCancel.setOnClickListener(this);
     }
-    
+
     private Handler handler = new HttpHandler(PetActivity.this)
     {
         @Override
@@ -226,18 +226,18 @@ public class PetActivity extends Activity implements View.OnClickListener
         {
             // connec success
         }
-        
+
         protected void failed(JSONObject jObject, int event)
         {
             // failed
-            
+
         }
-        
+
         @Override
         protected void error(int event)
         {
             // error
         }
-        
+
     };
 }
